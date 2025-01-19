@@ -1,36 +1,19 @@
-#-------------------------------------------------
-# Project configuration
-#-------------------------------------------------
+QT += core gui
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+CONFIG += c++11
 
-QT       += core gui widgets
-CONFIG   += c++11     # or c++17, depending on your needs
-
-TARGET = Minesweeper
 TEMPLATE = app
-
-#-------------------------------------------------
-# Include paths
-#-------------------------------------------------
-
-INCLUDEPATH += src
-
-#-------------------------------------------------
-# Source files and header files
-#-------------------------------------------------
+TARGET = Minesweeper
 
 SOURCES += \
     src/main.cpp \
-    src/mainwindow.cpp \
     src/board.cpp \
-    src/cell.cpp
+    src/cell.cpp \
+    src/mainwindow.cpp \
+    src/qrightclickbutton.cpp
 
 HEADERS += \
-    src/mainwindow.h \
     src/board.h \
-    src/cell.h
-
-#-------------------------------------------------
-# Resource files (optional, if you create .qrc files)
-#-------------------------------------------------
-
-# RESOURCES += resources.qrc
+    src/cell.h \
+    src/mainwindow.h \
+    src/qrightclickbutton.h
