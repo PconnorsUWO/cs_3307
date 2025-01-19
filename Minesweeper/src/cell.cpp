@@ -53,4 +53,18 @@ int Cell::row() const
 {
     return m_row;
 }
-  
+
+void Cell::setRow(int r)
+{
+    m_row = r;
+}
+
+int Cell::col() const
+{
+    return m_col;
+}
+
+void Cell::setCol(int c)
+{
+    m_col = c;
+}

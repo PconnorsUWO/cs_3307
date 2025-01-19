@@ -70,19 +70,22 @@ void MainWindow::handleCellClick()
         return;
     }
 
+    
     // Reveal the cell in the Board data structure
     m_board.revealCell(clickedRow, clickedCol);
 
     // Update the GUI to reflect the change
-    updateBoardDisplay();
 
     // Check for game over conditions (e.g., clicked on a mine)
     if(m_board.getCell(clickedRow, clickedCol).isMine()) {
         QMessageBox::information(this, "Game Over", "You clicked on a mine!");
-        // Optionally, disable all buttons or reset the game
-        // For example:
-        // disableAllButtons();
     }
+    
+    if(m_board.checkWinCondition()) {
+        QMessageBox::information(this, "Game Over", "You won!");
+    }
+
+    updateBoardDisplay();
 
     // Check for win condition if applicable
     // if(m_board.checkWinCondition()) { /* Handle win */ }

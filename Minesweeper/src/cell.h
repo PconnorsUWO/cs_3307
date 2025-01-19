@@ -1,6 +1,8 @@
 #ifndef CELL_H
 #define CELL_H
 
+
+
 /**
  * Represents a single cell in the Minesweeper board.
  */
@@ -26,6 +28,7 @@ public:
 
     int col() const;
     void setCol(int c);
+
 
 private:
     bool m_isMine;

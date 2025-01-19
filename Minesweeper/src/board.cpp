@@ -20,8 +20,7 @@ void Board::initialize()
         }
     }
 
-    // Place mines
-    placeMines();
+    placeMines(generateMines());
 
     // Calculate adjacency counts for all non-mine cells
     for(int r = 0; r < m_rows; r++) {
@@ -33,41 +32,63 @@ void Board::initialize()
         }
     }
 
-    // The problem statement says these cells are revealed from the start:
-    // (1,2) => adjacency 1
-    // (2,2) => adjacency 2
-    // (2,3) => adjacency 2
-    // (4,4) => adjacency 1
-    //
-    // Those positions are given in 1-based (row,col). Convert to 0-based:
-    // (1,2) -> (0,1)
-    // (2,2) -> (1,1)
-    // (2,3) -> (1,2)
-    // (4,4) -> (3,3)
-    revealCell(0, 1);
-    revealCell(1, 1);
-    revealCell(1, 2);
-    revealCell(3, 3);
-
-    // Optionally, if you want to EXACTLY match the stated adjacent counts (even if
-    // they differ from the computed adjacency), you can override them manually:
-    // m_cells[0][1].setAdjacentMines(1); // (1,2): 1
-    // m_cells[1][1].setAdjacentMines(2); // (2,2): 2
-    // m_cells[1][2].setAdjacentMines(2); // (2,3): 2
-    // m_cells[3][3].setAdjacentMines(1); // (4,4): 1
 }
 
-void Board::placeMines()
+std::string Board::generateMines()
 {
-    // Mines are at (1,3), (3,4), (5,1) in 1-based coordinates.
-    // Convert to 0-based indices: subtract 1 from each row/col.
-    // (1,3) -> (0,2)
-    // (3,4) -> (2,3)
-    // (5,1) -> (4,0)
+    // Calculate total number of cells and number of mines
+    int BOARDLENGTH = m_rows * m_cols;
+    int MINESCOUNT = BOARDLENGTH / 5; // Adjust the divisor to change mine density
 
-    m_cells[0][2].setIsMine(true);
-    m_cells[2][3].setIsMine(true);
-    m_cells[4][0].setIsMine(true);
+    // Initialize the board with '0's representing empty cells
+    std::string minesStr(BOARDLENGTH, '0');
+
+    // Create a list of all possible cell indices
+    std::vector<int> indices(BOARDLENGTH);
+    for(int i = 0; i < BOARDLENGTH; ++i) {
+        indices[i] = i;
+    }
+
+    // Seed with a real random value, if available
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    // Shuffle the indices to randomize mine placement
+    std::shuffle(indices.begin(), indices.end(), gen);
+
+    // Place mines ('1's) at the first MINESCOUNT positions in the shuffled list
+    for(int i = 0; i < MINESCOUNT; ++i) {
+        minesStr[indices[i]] = '1';
+    }
+
+    return minesStr;
+}
+
+
+void Board::placeMines(std:: string mines)
+{
+    int BOARD_SIZE = mines.length();
+    for (int i = 0; i < BOARD_SIZE; i++)
+    {
+        if (mines[i] == '1')
+        {
+            m_cells[i / m_cols][i % m_cols].setIsMine(true);
+        }
+    }
+}
+
+
+bool Board::checkWinCondition() const
+{
+    // Check if all non-mine cells are revealed
+    for(int r = 0; r < m_rows; r++) {
+        for(int c = 0; c < m_cols; c++) {
+            if(!m_cells[r][c].isMine() && !m_cells[r][c].isRevealed()) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 int Board::countAdjacentMines(int row, int col) const
@@ -92,6 +113,39 @@ int Board::countAdjacentMines(int row, int col) const
     return count;
 }
 
+std::array<Cell *, 8> Board::getAdjacentCells(int row, int col) const
+{
+    int ROWS = m_rows;
+    int COLS = m_cols;
+
+    std::array<std::pair<int, int>, 8> DIRECTIONS = {
+        std::make_pair(-1, -1), std::make_pair(-1, 0), std::make_pair(-1, 1),
+        std::make_pair(0, -1),                          std::make_pair(0, 1),
+        std::make_pair(1, -1), std::make_pair(1, 0), std::make_pair(1, 1)
+    };
+
+    // Create an array to store pointers to adjacent cells
+    std::array<Cell*, 8> adj;
+    adj.fill(nullptr);
+
+    // Get the current cell's position
+    int currentRow = row;
+    int currentCol = col;
+    
+    for (size_t i = 0; i < DIRECTIONS.size(); ++i) {
+        int newRow = currentRow + DIRECTIONS[i].first;
+        int newCol = currentCol + DIRECTIONS[i].second;
+
+        // Check if the new position is within grid bounds
+        if (newRow >= 0 && newRow < static_cast<int>(ROWS) &&
+            newCol >= 0 && newCol < static_cast<int>(COLS)) {
+            adj[i] = const_cast<Cell*>(&m_cells[newRow][newCol]);
+        }
+    }
+
+    return adj;
+}
+
 Cell& Board::getCell(int row, int col)
 {
     return m_cells[row][col];
@@ -109,8 +163,42 @@ int Board::colCount() const
 
 void Board::revealCell(int row, int col)
 {
-    if(row < 0 || row >= m_rows || col < 0 || col >= m_cols)
+    // Check boundaries and avoid invalid input
+    if (row < 0 || row >= m_rows || col < 0 || col >= m_cols) {
         return;
+    }
+    
+    // Queue for cells to process
+    std::queue<std::pair<int, int>> toProcess;
+    toProcess.push({row, col});
+
+    while (!toProcess.empty()) {
+        auto [currentRow, currentCol] = toProcess.front();
+        toProcess.pop();
+
+        Cell &currentCell = m_cells[currentRow][currentCol];
+
+        // Skip if already revealed or if it's a mine
+        if (currentCell.isRevealed() || currentCell.isMine()) {
+            continue;
+        }
+
+        // Reveal the current cell
+        currentCell.setIsRevealed(true);
+
+        // If the cell has no adjacent mines, add its neighbors to the queue
+        if (currentCell.adjacentMines() == 0) {
+            std::array<Cell *, 8> adj = getAdjacentCells(currentRow, currentCol);
+            for (Cell *neighbor : adj) {
+                if (neighbor && !neighbor->isRevealed() && !neighbor->isMine()) {
+                    int neighborRow = neighbor->row();
+                    int neighborCol = neighbor->col();
+                    toProcess.push({neighborRow, neighborCol});
+                }
+            }
+        }
+    }
+
     m_cells[row][col].setIsRevealed(true);
 }
 
