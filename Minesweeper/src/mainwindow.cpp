@@ -1,7 +1,5 @@
 #include "mainwindow.h"
-#include <QGridLayout>
-#include <QDebug>
-#include <QMessageBox> // For displaying messages (if needed)
+ // For displaying messages (if needed)
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -79,6 +77,7 @@ void MainWindow::handleCellClick()
     // Check for game over conditions (e.g., clicked on a mine)
     if(m_board.getCell(clickedRow, clickedCol).isMine()) {
         QMessageBox::information(this, "Game Over", "You clicked on a mine!");
+        
     }
     
     if(m_board.checkWinCondition()) {
@@ -165,8 +164,9 @@ void MainWindow::updateBoardDisplay()
     }
 }
 
-void MainWindow::setupBoardGUI()
+void MainWindow::resetBoard()
 {
-    // Optionally used if you want to separate GUI creation logic; 
-    // in this example, we do everything in the constructor.
+    m_board.initialize();
+    updateBoardDisplay();
 }
+

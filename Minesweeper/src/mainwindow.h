@@ -2,9 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "qrightclickbutton.h" // Include your custom button
+#include "qrightclickbutton.h"
 #include <vector>
-#include "board.h" // Assuming you have a Board class managing the game state
+#include "board.h"
+#include <QGridLayout>
+#include <QDebug>
+#include <QMessageBox>
 
 class MainWindow : public QMainWindow
 {
@@ -17,13 +20,16 @@ public:
 private slots:
     void handleCellClick();        // Slot for left-clicks
     void handleCellRightClick();   // Slot for right-clicks
+    void resetBoard();
+
 
 private:
     void updateBoardDisplay();
-    void setupBoardGUI();
+     
+    
 
     Board m_board; // Your game board
-    std::vector<std::vector<QRightClickButton*>> m_buttons; // 2D array of custom buttons
+    std::vector<std::vector<QRightClickButton*>> m_buttons;
 };
 
 #endif // MAINWINDOW_H
