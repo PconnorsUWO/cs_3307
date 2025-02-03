@@ -1,5 +1,8 @@
 #include "mainwindow.h"
- // For displaying messages (if needed)
+#include <QMessageBox>
+#include <QDebug>
+
+// ... [Other includes and code]
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -39,7 +42,6 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    // Properly delete buttons if not using parent-child hierarchy
     // Qt's parent-child system should handle deletion if set up correctly
 }
 
@@ -68,26 +70,31 @@ void MainWindow::handleCellClick()
         return;
     }
 
-    
     // Reveal the cell in the Board data structure
     m_board.revealCell(clickedRow, clickedCol);
 
     // Update the GUI to reflect the change
+    updateBoardDisplay();
 
     // Check for game over conditions (e.g., clicked on a mine)
     if(m_board.getCell(clickedRow, clickedCol).isMine()) {
-        QMessageBox::information(this, "Game Over", "You clicked on a mine!");
-        
+        // Show LoseMessageBox
+        LoseMessageBox *loseBox = new LoseMessageBox(this);
+        connect(loseBox, &LoseMessageBox::retryClicked, this, &MainWindow::onLoseRetry);
+        connect(loseBox, &LoseMessageBox::exitClicked, this, &MainWindow::onLoseExit);
+        loseBox->exec(); // Modal dialog
+        return; // Exit early since game is over
     }
-    
+
+    // Check for game win conditions
     if(m_board.checkWinCondition()) {
-        QMessageBox::information(this, "Game Over", "You won!");
+        // Show WinMessageBox
+        WinMessageBox *winBox = new WinMessageBox(this);
+        connect(winBox, &WinMessageBox::retryClicked, this, &MainWindow::onWinRetry);
+        connect(winBox, &WinMessageBox::exitClicked, this, &MainWindow::onWinExit);
+        winBox->exec(); // Modal dialog
+        return; // Exit early since game is over
     }
-
-    updateBoardDisplay();
-
-    // Check for win condition if applicable
-    // if(m_board.checkWinCondition()) { /* Handle win */ }
 }
 
 void MainWindow::handleCellRightClick()
@@ -122,7 +129,14 @@ void MainWindow::handleCellRightClick()
     updateBoardDisplay();
 
     // Optionally, check for game win conditions if all mines are flagged
-    // if(m_board.checkWinCondition()) { /* Handle win */ }
+    if(m_board.checkWinCondition()) {
+        // Show WinMessageBox
+        WinMessageBox *winBox = new WinMessageBox(this);
+        connect(winBox, &WinMessageBox::retryClicked, this, &MainWindow::onWinRetry);
+        connect(winBox, &WinMessageBox::exitClicked, this, &MainWindow::onWinExit);
+        winBox->exec(); // Modal dialog
+        return; // Exit early since game is over
+    }
 }
 
 void MainWindow::updateBoardDisplay()
@@ -170,3 +184,24 @@ void MainWindow::resetBoard()
     updateBoardDisplay();
 }
 
+// Slots to handle WinMessageBox actions
+void MainWindow::onWinRetry()
+{
+    resetBoard();
+}
+
+void MainWindow::onWinExit()
+{
+    QApplication::quit();
+}
+
+// Slots to handle LoseMessageBox actions
+void MainWindow::onLoseRetry()
+{
+    resetBoard();
+}
+
+void MainWindow::onLoseExit()
+{
+    QApplication::quit();
+}

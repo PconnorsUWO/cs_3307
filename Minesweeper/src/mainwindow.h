@@ -2,34 +2,36 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include "qrightclickbutton.h"
-#include <vector>
-#include "board.h"
 #include <QGridLayout>
-#include <QDebug>
-#include <QMessageBox>
+#include <QVector>
+#include <QApplication>
+#include "Board.h"
+#include "QRightClickButton.h"
+#include "WinMessageBox.h"
+#include "LoseMessageBox.h"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
-    void handleCellClick();        // Slot for left-clicks
-    void handleCellRightClick();   // Slot for right-clicks
-    void resetBoard();
-
+    void handleCellClick();
+    void handleCellRightClick();
+    void onWinRetry();
+    void onWinExit();
+    void onLoseRetry();
+    void onLoseExit();
 
 private:
     void updateBoardDisplay();
-     
-    
+    void resetBoard();
 
-    Board m_board; // Your game board
-    std::vector<std::vector<QRightClickButton*>> m_buttons;
+    Board m_board;
+    QVector<QVector<QRightClickButton*>> m_buttons;
 };
 
-#endif // MAINWINDOW_H
+#endif
