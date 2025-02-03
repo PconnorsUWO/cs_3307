@@ -7,8 +7,7 @@
 #include <QApplication>
 #include "Board.h"
 #include "QRightClickButton.h"
-#include "WinMessageBox.h"
-#include "LoseMessageBox.h"
+
 
 class MainWindow : public QMainWindow
 {
