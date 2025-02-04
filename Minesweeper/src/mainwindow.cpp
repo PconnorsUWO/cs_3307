@@ -1,8 +1,11 @@
 #include "mainwindow.h"
+#include <QFile>
 #include <QMessageBox>
+#include <iostream>
 #include <QDebug>
-#include <QIcon>   
+#include <QIcon>
 #include <QPixmap>
+#include <QSize>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -110,48 +113,55 @@ void MainWindow::handleCellRightClick()
 
 void MainWindow::updateBoardDisplay()
 {
-    // Loop over every cell and update its corresponding QRightClickButton icon
     for (int r = 0; r < m_board.rowCount(); r++) {
         for (int c = 0; c < m_board.colCount(); c++) {
             Cell &cell = m_board.getCell(r, c);
             QRightClickButton *btn = m_buttons[r][c];
 
-            // Clear any previous text or icon
+            // Reset the button text and icon
             btn->setText("");
             btn->setIcon(QIcon());
 
+            QString iconPath;
+
             if (cell.isRevealed()) {
                 if (cell.isMine()) {
-                    // Display bomb image for a revealed mine.
-                    // (You might use bomb-explode.png if you want to indicate the mine that was clicked.)
-                    btn->setIcon(QIcon(":/icons/bomb-revealed.png"));
+                    iconPath = ":/resources/bomb-revealed.png";
                 } else {
                     int adj = cell.adjacentMines();
                     if (adj > 0) {
-                        // Display the numbered tile icon corresponding to the count (1-tile.png, 2-tile.png, etc.)
-                        btn->setIcon(QIcon(QString(":/icons/%1-tile.png").arg(adj)));
+                        iconPath = QString(":/resources/%1-tile.png").arg(adj);
                     } else {
-                        // For 0 adjacent mines, display the clicked tile image.
-                        btn->setIcon(QIcon(":/icons/general-tile-clicked.png"));
+                        iconPath = ":/resources/general-tile-clicked.png";
                     }
                 }
                 btn->setEnabled(false);
             }
             else {
                 if (cell.isFlagged()) {
-                    // Display the flag image when the cell is flagged.
-                    btn->setIcon(QIcon(":/icons/flag.png"));
+                    iconPath = ":/resources/flag.png";
                 } else {
-                    // Display the covered tile image for unrevealed cells.
-                    btn->setIcon(QIcon(":/icons/general-tile.png"));
+                    iconPath = ":/resources/general-tile.png";
                 }
                 btn->setEnabled(true);
             }
-            // Adjust the icon size to match the button size.
-            btn->setIconSize(btn->size());
+
+            // Load the pixmap from the resource path
+            QPixmap pixmap(iconPath);
+            if (!pixmap.isNull()) {
+                // Explicitly scale the pixmap to the button size, preserving aspect ratio
+                QPixmap scaledPixmap = pixmap.scaled(btn->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+                btn->setIcon(QIcon(scaledPixmap));
+                btn->setIconSize(btn->size());
+            } else {
+                qWarning() << "[Error] Failed to load icon:" << iconPath;
+            }
         }
     }
 }
+
+
+
 
 void MainWindow::resetBoard()
 {

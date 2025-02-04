@@ -67,6 +67,3 @@ echo Step 3: Executing Minesweeper.exe
 echo ============================================
 REM Adjust the path to Minesweeper.exe if it's located elsewhere
 release\Minesweeper.exe
-
-REM Optional: Pause after execution
-pause

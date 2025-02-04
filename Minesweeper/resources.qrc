@@ -1,0 +1,18 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+    <qresource>
+        <file>resources/1-tile.png</file>
+        <file>resources/2-tile.png</file>
+        <file>resources/3-tile.png</file>
+        <file>resources/4-tile.png</file>
+        <file>resources/5-tile.png</file>
+        <file>resources/6-tile.png</file>
+        <file>resources/7-tile.png</file>
+        <file>resources/8-tile.png</file>
+        <file>resources/bomb-explode.png</file>
+        <file>resources/bomb-revealed.png</file>
+        <file>resources/flag.png</file>
+        <file>resources/general-tile-clicked.png</file>
+        <file>resources/general-tile.png</file>
+    </qresource>
+</RCC>

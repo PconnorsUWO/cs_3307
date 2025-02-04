@@ -18,7 +18,7 @@
 class Board
 {
 public:
-    Board(int rows = 5, int cols = 5);
+    Board(int rows = 12, int cols = 12);
 
 
     void initialize();

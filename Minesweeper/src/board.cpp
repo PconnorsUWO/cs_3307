@@ -36,27 +36,21 @@ void Board::initialize()
 
 std::string Board::generateMines()
 {
-    // Calculate total number of cells and number of mines
     int BOARDLENGTH = m_rows * m_cols;
-    int MINESCOUNT = BOARDLENGTH / 5; // Adjust the divisor to change mine density
+    int MINESCOUNT = BOARDLENGTH / 5; 
 
-    // Initialize the board with '0's representing empty cells
     std::string minesStr(BOARDLENGTH, '0');
 
-    // Create a list of all possible cell indices
     std::vector<int> indices(BOARDLENGTH);
     for(int i = 0; i < BOARDLENGTH; ++i) {
         indices[i] = i;
     }
 
-    // Seed with a real random value, if available
     std::random_device rd;
     std::mt19937 gen(rd());
 
-    // Shuffle the indices to randomize mine placement
     std::shuffle(indices.begin(), indices.end(), gen);
 
-    // Place mines ('1's) at the first MINESCOUNT positions in the shuffled list
     for(int i = 0; i < MINESCOUNT; ++i) {
         minesStr[indices[i]] = '1';
     }
