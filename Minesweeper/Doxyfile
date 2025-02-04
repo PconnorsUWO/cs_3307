@@ -1,0 +1,129 @@
+# Doxyfile 1.9.1 (for example)
+#---------------------------------------------------------------------------
+# Project related configuration options
+#---------------------------------------------------------------------------
+
+# The PROJECT_NAME tag is a single word (or a sequence of words surrounded 
+# by quotes) that should identify the project.
+PROJECT_NAME           = "Minesweeper"
+
+# The PROJECT_BRIEF tag can be used to specify a short description of your project.
+PROJECT_BRIEF          = "A Qt-based Minesweeper game."
+
+# The PROJECT_NUMBER tag can be used to enter a project or revision number.
+PROJECT_NUMBER         = "1.0"
+
+# The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) base 
+# path where the generated documentation will be put.
+OUTPUT_DIRECTORY       = docs
+
+#---------------------------------------------------------------------------
+# Configuration options related to the input files
+#---------------------------------------------------------------------------
+
+# The INPUT tag is used to specify the files and/or directories that contain
+# documented source files. You can specify multiple directories or files.
+INPUT                  = src
+
+# If the value of the RECURSIVE tag is YES, doxygen will recurse into subdirectories.
+RECURSIVE              = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to source browsing
+#---------------------------------------------------------------------------
+
+# If the SOURCE_BROWSER tag is set to YES then doxygen will produce a list of source
+# files with syntax highlighting.
+SOURCE_BROWSER         = YES
+
+# If the INLINE_SOURCES tag is set to YES, doxygen will include the body of functions
+# and classes directly in the documentation.
+INLINE_SOURCES         = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the alphabetical class index
+#---------------------------------------------------------------------------
+
+# If the FULL_PATH_NAMES tag is set to YES, doxygen will prepend the full path before
+# files name in the file list and in the header files.
+FULL_PATH_NAMES        = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the HTML output
+#---------------------------------------------------------------------------
+
+# If the GENERATE_HTML tag is set to YES (the default) Doxygen will generate HTML output.
+GENERATE_HTML          = YES
+
+# The HTML_OUTPUT tag is used to specify where the HTML docs will be put.
+HTML_OUTPUT            = html
+
+# The HTML_FILE_EXTENSION tag can be used to specify the file extension for each generated HTML file.
+HTML_FILE_EXTENSION    = .html
+
+#---------------------------------------------------------------------------
+# Configuration options related to warnings and progress messages
+#---------------------------------------------------------------------------
+
+# The QUIET tag can be used to turn on/off the messages that are generated during
+# doxygen's run.
+QUIET                  = NO
+
+# The WARNINGS tag can be used to turn on/off the warning messages that are generated during doxygen's run.
+WARNINGS               = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the dot tool
+#---------------------------------------------------------------------------
+
+# If the HAVE_DOT tag is set to YES then doxygen will assume the dot tool is available.
+HAVE_DOT               = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the extraction of undocumented members.
+#---------------------------------------------------------------------------
+
+# If the EXTRACT_ALL tag is set to YES doxygen will assume all entities in the source code
+# should be documented, even if no documentation was provided.
+EXTRACT_ALL            = YES
+
+# If the EXTRACT_PRIVATE tag is set to YES, private members will be included in the documentation.
+EXTRACT_PRIVATE        = YES
+
+# If the EXTRACT_STATIC tag is set to YES, static members will be included in the documentation.
+EXTRACT_STATIC         = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to source code parsing
+#---------------------------------------------------------------------------
+
+# The FILE_PATTERNS tag can be used to specify one or more wildcard patterns (like *.cpp and *.h)
+# to filter out the source-files in the directories.
+FILE_PATTERNS          = *.cpp *.h
+
+#---------------------------------------------------------------------------
+# Configuration options related to preprocessor definitions
+#---------------------------------------------------------------------------
+
+# The ENABLE_PREPROCESSING tag can be used to enable (YES) or disable (NO) preprocessing.
+ENABLE_PREPROCESSING   = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the dot graph generation
+#---------------------------------------------------------------------------
+
+# If the CLASS_DIAGRAMS tag is set to YES (the default) doxygen will generate a class diagram (in HTML and LaTeX)
+# for classes with base or super classes.
+CLASS_DIAGRAMS         = YES
+
+#---------------------------------------------------------------------------
+# Configuration options related to the LaTeX output
+#---------------------------------------------------------------------------
+
+# If the GENERATE_LATEX tag is set to YES doxygen will generate LaTeX output.
+GENERATE_LATEX         = YES
+
+#---------------------------------------------------------------------------
+# End of Doxyfile
+#---------------------------------------------------------------------------
+

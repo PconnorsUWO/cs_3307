@@ -1,0 +1,117 @@
+\doxysection{titlebar.\+cpp}
+\hypertarget{titlebar_8cpp_source}{}\label{titlebar_8cpp_source}\index{src/titlebar.cpp@{src/titlebar.cpp}}
+\mbox{\hyperlink{titlebar_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{titlebar_8h}{titlebar.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QHBoxLayout>}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QPushButton>}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QMouseEvent>}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <QApplication>}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <QStyle>}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <QGraphicsDropShadowEffect>}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00018}\mbox{\hyperlink{class_title_bar_aac10b1c6b66a54b45c5ec6fe9930ac0a}{00018}}\ \mbox{\hyperlink{class_title_bar_aac10b1c6b66a54b45c5ec6fe9930ac0a}{TitleBar::TitleBar}}(QWidget\ *parent)}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00019}00019\ \ \ \ \ :\ QWidget(parent)}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{comment}{//\ Set\ an\ object\ name\ so\ the\ style\ sheet\ can\ target\ this\ widget.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00022}00022\ \ \ \ \ setObjectName(\textcolor{stringliteral}{"{}TitleBar"{}});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ Fix\ the\ height\ of\ the\ title\ bar.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00024}00024\ \ \ \ \ setFixedHeight(35);}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ horizontal\ layout\ with\ margins.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00027}00027\ \ \ \ \ QHBoxLayout\ *layout\ =\ \textcolor{keyword}{new}\ QHBoxLayout(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00028}00028\ \ \ \ \ layout-\/>setContentsMargins(10,\ 0,\ 10,\ 0);}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ Create\ and\ add\ an\ icon\ label.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{class_title_bar_a4c39050059d8cd18e5eb48ca413b435f}{m\_iconLabel}}\ =\ \textcolor{keyword}{new}\ QLabel(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00032}00032\ \ \ \ \ QPixmap\ icon(\textcolor{stringliteral}{"{}:/resources/bomb-\/revealed.png"{}});\ \ \textcolor{comment}{//\ Replace\ with\ your\ own\ Minesweeper\ icon.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00033}00033\ \ \ \ \ \mbox{\hyperlink{class_title_bar_a4c39050059d8cd18e5eb48ca413b435f}{m\_iconLabel}}-\/>setPixmap(icon.scaled(24,\ 24,\ Qt::KeepAspectRatio,\ Qt::SmoothTransformation));}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00034}00034\ \ \ \ \ layout-\/>addWidget(\mbox{\hyperlink{class_title_bar_a4c39050059d8cd18e5eb48ca413b435f}{m\_iconLabel}});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ Create\ and\ add\ the\ title\ label.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00037}00037\ \ \ \ \ \mbox{\hyperlink{class_title_bar_a5cbf42ff9112157ee26e1c4d135dbf5e}{m\_titleLabel}}\ =\ \textcolor{keyword}{new}\ QLabel(\textcolor{stringliteral}{"{}Minesweeper"{}},\ \textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00038}00038\ \ \ \ \ \mbox{\hyperlink{class_title_bar_a5cbf42ff9112157ee26e1c4d135dbf5e}{m\_titleLabel}}-\/>setStyleSheet(\textcolor{stringliteral}{"{}color:\ white;\ font-\/family:\ 'Segoe\ UI';\ font-\/size:\ 16px;\ font-\/weight:\ bold;"{}});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00039}00039\ \ \ \ \ layout-\/>addWidget(\mbox{\hyperlink{class_title_bar_a5cbf42ff9112157ee26e1c4d135dbf5e}{m\_titleLabel}});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{comment}{//\ Add\ a\ stretch\ to\ push\ the\ buttons\ to\ the\ right.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00042}00042\ \ \ \ \ layout-\/>addStretch();}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{comment}{//\ Create\ the\ minimize\ button.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00045}00045\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}}\ =\ \textcolor{keyword}{new}\ QPushButton(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}}-\/>setFixedSize(30,\ 30);}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}}-\/>setText(\textcolor{stringliteral}{"{}—"{}});\ \ \textcolor{comment}{//\ Em\ dash\ for\ a\ clean\ look.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}}-\/>setStyleSheet(}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}QPushButton\ \{"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ background-\/color:\ transparent;"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ border:\ none;"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ color:\ black;"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ font-\/family:\ 'Segoe\ UI';"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ font-\/size:\ 14px;"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}QPushButton:hover\ \{"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ background-\/color:\ rgba(255,\ 255,\ 255,\ 0.3);"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ border-\/radius:\ 5px;"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00060}00060\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00061}00061\ \ \ \ \ layout-\/>addWidget(\mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{comment}{//\ Create\ the\ close\ button.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00064}00064\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}}\ =\ \textcolor{keyword}{new}\ QPushButton(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00065}00065\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}}-\/>setFixedSize(30,\ 30);}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}}-\/>setText(\textcolor{stringliteral}{"{}✕"{}});\ \ \textcolor{comment}{//\ Unicode\ multiplication\ sign.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}}-\/>setStyleSheet(}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}QPushButton\ \{"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ background-\/color:\ transparent;"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ border:\ none;"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ color:\ black;"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ font-\/family:\ 'Segoe\ UI';"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ font-\/size:\ 14px;"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}QPushButton:hover\ \{"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ background-\/color:\ \#E81123;"{}}\ \ \textcolor{comment}{//\ Bold\ red\ for\ hover.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ border-\/radius:\ 5px;"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00079}00079\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00080}00080\ \ \ \ \ layout-\/>addWidget(\mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{comment}{//\ Apply\ a\ gradient\ background\ to\ the\ title\ bar.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00083}00083\ \ \ \ \ setStyleSheet(}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#TitleBar\ \{"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ background:\ qlineargradient(x1:0,\ y1:0,\ x2:0,\ y2:1,\ stop:0\ \#34495e,\ stop:1\ \#2c3e50);"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}"{}}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00087}00087\ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{comment}{//\ Add\ a\ drop\ shadow\ effect\ for\ depth.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00090}00090\ \ \ \ \ QGraphicsDropShadowEffect\ *shadow\ =\ \textcolor{keyword}{new}\ QGraphicsDropShadowEffect(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00091}00091\ \ \ \ \ shadow-\/>setBlurRadius(10);}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00092}00092\ \ \ \ \ shadow-\/>setOffset(0,\ 2);}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00093}00093\ \ \ \ \ shadow-\/>setColor(QColor(0,\ 0,\ 0,\ 160));}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00094}00094\ \ \ \ \ setGraphicsEffect(shadow);}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00096}00096\ \ \ \ \ \textcolor{comment}{//\ Connect\ the\ buttons\ to\ the\ corresponding\ signals.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00097}00097\ \ \ \ \ connect(\mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{class_title_bar_a6ba829509f9de537d10c2f6c98569aba}{TitleBar::minimizeRequested}});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00098}00098\ \ \ \ \ connect(\mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{class_title_bar_a3b515bda0009b6d622b079f7486471ac}{TitleBar::closeRequested}});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00099}00099\ \}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00107}\mbox{\hyperlink{class_title_bar_a0ec84d2661322f3500eb23c60ab6dd71}{00107}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_title_bar_a0ec84d2661322f3500eb23c60ab6dd71}{TitleBar::mousePressEvent}}(QMouseEvent\ *event)}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00108}00108\ \{}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>button()\ ==\ Qt::LeftButton)\ \{}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ globalPosition()\ and\ convert\ it\ to\ QPoint.}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_title_bar_a5c004497dcbbc1ea5cf2ffb769470f68}{m\_dragPosition}}\ =\ \textcolor{keyword}{event}-\/>globalPosition().toPoint()\ -\/\ parentWidget()-\/>frameGeometry().topLeft();}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{event}-\/>accept();}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00113}00113\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00114}00114\ \}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00122}\mbox{\hyperlink{class_title_bar_aa8898dce3ec15a144a9912fd6944e0c5}{00122}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_title_bar_aa8898dce3ec15a144a9912fd6944e0c5}{TitleBar::mouseMoveEvent}}(QMouseEvent\ *event)}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00123}00123\ \{}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00124}00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>buttons()\ \&\ Qt::LeftButton)\ \{}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ parentWidget()-\/>move(event-\/>globalPosition().toPoint()\ -\/\ \mbox{\hyperlink{class_title_bar_a5c004497dcbbc1ea5cf2ffb769470f68}{m\_dragPosition}});}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{event}-\/>accept();}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00127}00127\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00128}00128\ \}}
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8cpp_source_l00130}00130\ }
+
+\end{DoxyCode}

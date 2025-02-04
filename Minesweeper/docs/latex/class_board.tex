@@ -1,0 +1,669 @@
+\doxysection{Board Class Reference}
+\hypertarget{class_board}{}\label{class_board}\index{Board@{Board}}
+
+
+The \doxylink{class_board}{Board} class.  
+
+
+
+
+{\ttfamily \#include $<$board.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_board_a47b1895375dc7cb23f42ad9bf035170c}{Board}} (int rows=12, int cols=12)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_board}{Board} Constructs a new \doxylink{class_board}{Board} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a7eeeaf9eb3642a37669d86a70eb2e062}{initialize}} ()
+\begin{DoxyCompactList}\small\item\em initialize Sets up the board by resetting cells, placing mines, and calculating adjacent mine counts. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_board_ac9bb889bab8a69f6283661a325a9130b}{check\+Win\+Condition}} () const
+\begin{DoxyCompactList}\small\item\em check\+Win\+Condition Determines if the game is won. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cell}{Cell}} \& \mbox{\hyperlink{class_board_a5846bc789dca6f86d5c8b658c3602562}{get\+Cell}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em get\+Cell Returns a reference to the cell at the specified position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a80bb715a0e5ed787eaaa0bf567203d03}{reveal\+Cell}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em reveal\+Cell Reveals the cell at the given position and automatically reveals adjacent cells if the cell has no neighboring mines. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a2c3d4e5fad8c522c8e453bfa566cf348}{toggle\+Flag}} (int row, int col)
+\begin{DoxyCompactList}\small\item\em toggle\+Flag Toggles the flagged state of the cell at the specified position. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_board_a1c206de7355046cd831dc24a12839843}{reveal\+Board}} ()
+\begin{DoxyCompactList}\small\item\em reveal\+Board Reveals all cells on the board. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_board_ade35d2cb2a876b4da2c97faa878f29d1}{row\+Count}} () const
+\begin{DoxyCompactList}\small\item\em row\+Count Returns the number of rows in the board. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_board_a8486993f6c7841ebaf2596ee9179ac3b}{col\+Count}} () const
+\begin{DoxyCompactList}\small\item\em col\+Count Returns the number of columns in the board. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_board_a6ca5e3012ebc96ee7471688defb583e8}{place\+Mines}} (std\+::string mines)
+\begin{DoxyCompactList}\small\item\em place\+Mines Places mines on the board according to the provided mine string. \end{DoxyCompactList}\item 
+std\+::array$<$ \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*}, 8 $>$ \mbox{\hyperlink{class_board_ab0e64ce17688943a00a7f76c7d784c48}{get\+Adjacent\+Cells}} (int row, int col) const
+\begin{DoxyCompactList}\small\item\em get\+Adjacent\+Cells Retrieves pointers to adjacent cells. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_board_ae774d5bc4b30e4bfde73652dcedfa1b0}{generate\+Mines}} ()
+\begin{DoxyCompactList}\small\item\em generate\+Mines Generates a string representing mine placement. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_board_ad62917ff602e9b622b2609b88f38e32a}{count\+Adjacent\+Mines}} (int row, int col) const
+\begin{DoxyCompactList}\small\item\em count\+Adjacent\+Mines Counts the number of mines adjacent to a given cell. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\+\_\+rows}}
+\begin{DoxyCompactList}\small\item\em Number of rows in the board. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\+\_\+cols}}
+\begin{DoxyCompactList}\small\item\em Number of columns in the board. \end{DoxyCompactList}\item 
+QVector$<$ QVector$<$ \mbox{\hyperlink{class_cell}{Cell}} $>$ $>$ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\+\_\+cells}}
+\begin{DoxyCompactList}\small\item\em 2D grid of cells. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_board}{Board} class. 
+
+Manages a two-\/dimensional grid of Cells for the Minesweeper game. It handles board initialization, mine placement, adjacent mine counting, cell revealing, and flag toggling. 
+
+Definition at line \mbox{\hyperlink{board_8h_source_l00020}{20}} of file \mbox{\hyperlink{board_8h_source}{board.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_board_a47b1895375dc7cb23f42ad9bf035170c}\index{Board@{Board}!Board@{Board}}
+\index{Board@{Board}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{Board()}{Board()}}
+{\footnotesize\ttfamily \label{class_board_a47b1895375dc7cb23f42ad9bf035170c} 
+Board\+::\+Board (\begin{DoxyParamCaption}\item[{int}]{rows}{ = {\ttfamily 12}, }\item[{int}]{cols}{ = {\ttfamily 12}}\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_board}{Board} Constructs a new \doxylink{class_board}{Board} object. 
+
+\doxylink{class_board_a47b1895375dc7cb23f42ad9bf035170c}{Board\+::\+Board} Constructs a new \doxylink{class_board}{Board} with the specified dimensions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & The number of rows for the board. Default is 12. \\
+\hline
+{\em cols} & The number of columns for the board. Default is 12.\\
+\hline
+{\em rows} & Number of rows in the board. \\
+\hline
+{\em cols} & Number of columns in the board. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00010\ \ \ \ \ :\ \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\_rows}}(rows)}
+\DoxyCodeLine{00011\ \ \ \ \ ,\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}}(cols)}
+\DoxyCodeLine{00012\ \ \ \ \ ,\ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}(rows,\ QVector<Cell>(cols)) }
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00014\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_board_ac9bb889bab8a69f6283661a325a9130b}\index{Board@{Board}!checkWinCondition@{checkWinCondition}}
+\index{checkWinCondition@{checkWinCondition}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{checkWinCondition()}{checkWinCondition()}}
+{\footnotesize\ttfamily \label{class_board_ac9bb889bab8a69f6283661a325a9130b} 
+bool Board\+::check\+Win\+Condition (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+check\+Win\+Condition Determines if the game is won. 
+
+\doxylink{class_board_ac9bb889bab8a69f6283661a325a9130b}{Board\+::check\+Win\+Condition} Checks if the win condition is met.
+
+\begin{DoxyReturn}{Returns}
+true if all non-\/mine cells are revealed, false otherwise.
+\end{DoxyReturn}
+The win condition is satisfied when all non-\/mine cells have been revealed.
+
+\begin{DoxyReturn}{Returns}
+true if the player has won, false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\_rows}};\ r++)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}};\ c++)\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[r][c].isMine()\ \&\&\ !\mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[r][c].isRevealed())\ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00110\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_board_a8486993f6c7841ebaf2596ee9179ac3b}\index{Board@{Board}!colCount@{colCount}}
+\index{colCount@{colCount}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{colCount()}{colCount()}}
+{\footnotesize\ttfamily \label{class_board_a8486993f6c7841ebaf2596ee9179ac3b} 
+int Board\+::col\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+col\+Count Returns the number of columns in the board. 
+
+\doxylink{class_board_a8486993f6c7841ebaf2596ee9179ac3b}{Board\+::col\+Count} Returns the total number of columns in the board.
+
+\begin{DoxyReturn}{Returns}
+The number of columns. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00200}{200}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00201\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}};}
+\DoxyCodeLine{00203\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_board_ad62917ff602e9b622b2609b88f38e32a}\index{Board@{Board}!countAdjacentMines@{countAdjacentMines}}
+\index{countAdjacentMines@{countAdjacentMines}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{countAdjacentMines()}{countAdjacentMines()}}
+{\footnotesize\ttfamily \label{class_board_ad62917ff602e9b622b2609b88f38e32a} 
+int Board\+::count\+Adjacent\+Mines (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+count\+Adjacent\+Mines Counts the number of mines adjacent to a given cell. 
+
+\doxylink{class_board_ad62917ff602e9b622b2609b88f38e32a}{Board\+::count\+Adjacent\+Mines} Counts the mines in adjacent cells around the specified cell.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row index of the cell. \\
+\hline
+{\em col} & The column index of the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The count of adjacent mines.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row index of the current cell. \\
+\hline
+{\em col} & The column index of the current cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of adjacent mines. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00118}{118}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119\ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ dr\ =\ -\/1;\ dr\ <=\ 1;\ dr++)\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ dc\ =\ -\/1;\ dc\ <=\ 1;\ dc++)\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (dr\ ==\ 0\ \&\&\ dc\ ==\ 0)}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \ \textcolor{comment}{//\ Skip\ the\ cell\ itself.}}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rr\ =\ row\ +\ dr;}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cc\ =\ col\ +\ dc;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ boundaries.}}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (rr\ >=\ 0\ \&\&\ rr\ <\ m\_rows\ \&\&\ cc\ >=\ 0\ \&\&\ cc\ <\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}})\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[rr][cc].isMine())\ \{}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00136\ \ \ \ \ \}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{00138\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_board_ae774d5bc4b30e4bfde73652dcedfa1b0}\index{Board@{Board}!generateMines@{generateMines}}
+\index{generateMines@{generateMines}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{generateMines()}{generateMines()}}
+{\footnotesize\ttfamily \label{class_board_ae774d5bc4b30e4bfde73652dcedfa1b0} 
+std\+::string Board\+::generate\+Mines (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+generate\+Mines Generates a string representing mine placement. 
+
+\doxylink{class_board_ae774d5bc4b30e4bfde73652dcedfa1b0}{Board\+::generate\+Mines} Generates a string representing mine placement.
+
+\begin{DoxyReturn}{Returns}
+A string with \textquotesingle{}1\textquotesingle{}s for mine cells and \textquotesingle{}0\textquotesingle{}s otherwise.
+\end{DoxyReturn}
+The function calculates the number of mines based on the board size (approximately 20\% of the board) and randomly shuffles the mine placements.
+
+\begin{DoxyReturn}{Returns}
+A string where \textquotesingle{}1\textquotesingle{} represents a mine and \textquotesingle{}0\textquotesingle{} represents a safe cell. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00055}{55}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00056\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{int}\ BOARDLENGTH\ =\ \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\_rows}}\ *\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}};}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{int}\ MINESCOUNT\ =\ BOARDLENGTH\ /\ 5;}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ std::string\ minesStr(BOARDLENGTH,\ \textcolor{charliteral}{'0'});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ std::vector<int>\ indices(BOARDLENGTH);}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ BOARDLENGTH;\ ++i)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ indices[i]\ =\ i;}
+\DoxyCodeLine{00065\ \ \ \ \ \}}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ std::random\_device\ rd;}
+\DoxyCodeLine{00068\ \ \ \ \ std::mt19937\ gen(rd());}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ std::shuffle(indices.begin(),\ indices.end(),\ gen);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ MINESCOUNT;\ ++i)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ minesStr[indices[i]]\ =\ \textcolor{charliteral}{'1'};}
+\DoxyCodeLine{00074\ \ \ \ \ \}}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordflow}{return}\ minesStr;}
+\DoxyCodeLine{00077\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_board_ab0e64ce17688943a00a7f76c7d784c48}\index{Board@{Board}!getAdjacentCells@{getAdjacentCells}}
+\index{getAdjacentCells@{getAdjacentCells}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getAdjacentCells()}{getAdjacentCells()}}
+{\footnotesize\ttfamily \label{class_board_ab0e64ce17688943a00a7f76c7d784c48} 
+std\+::array$<$ \mbox{\hyperlink{class_cell}{Cell}} \texorpdfstring{$\ast$}{*}, 8 $>$ Board\+::get\+Adjacent\+Cells (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+get\+Adjacent\+Cells Retrieves pointers to adjacent cells. 
+
+\doxylink{class_board_ab0e64ce17688943a00a7f76c7d784c48}{Board\+::get\+Adjacent\+Cells} Retrieves pointers to the eight adjacent cells.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row index of the current cell. \\
+\hline
+{\em col} & The column index of the current cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array of pointers to adjacent \doxylink{class_cell}{Cell} objects.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row index of the current cell. \\
+\hline
+{\em col} & The column index of the current cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An array of pointers to adjacent cells (nullptr if out-\/of-\/bounds). 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00146}{146}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00147\ \{}
+\DoxyCodeLine{00148\ \ \ \ \ \textcolor{keywordtype}{int}\ ROWS\ =\ \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\_rows}};}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keywordtype}{int}\ COLS\ =\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}};}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00151\ \ \ \ \ std::array<std::pair<int,\ int>,\ 8>\ DIRECTIONS\ =\ \{}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ std::make\_pair(-\/1,\ -\/1),\ std::make\_pair(-\/1,\ 0),\ std::make\_pair(-\/1,\ 1),}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ std::make\_pair(0,\ -\/1),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_pair(0,\ 1),}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ std::make\_pair(1,\ -\/1),\ std::make\_pair(1,\ 0),\ std::make\_pair(1,\ 1)}
+\DoxyCodeLine{00155\ \ \ \ \ \};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{comment}{//\ Array\ to\ store\ adjacent\ cell\ pointers.}}
+\DoxyCodeLine{00158\ \ \ \ \ std::array<Cell*,\ 8>\ adj;}
+\DoxyCodeLine{00159\ \ \ \ \ adj.fill(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{int}\ currentRow\ =\ row;}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{int}\ currentCol\ =\ col;}
+\DoxyCodeLine{00163\ \ \ \ \ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ DIRECTIONS.size();\ ++i)\ \{}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ newRow\ =\ currentRow\ +\ DIRECTIONS[i].first;}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ newCol\ =\ currentCol\ +\ DIRECTIONS[i].second;}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newRow\ >=\ 0\ \&\&\ newRow\ <\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(ROWS)\ \&\&}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ newCol\ >=\ 0\ \&\&\ newCol\ <\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(COLS))\ \{}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ adj[i]\ =\ \textcolor{keyword}{const\_cast<}Cell*\textcolor{keyword}{>}(\&\mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[newRow][newCol]);}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00171\ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordflow}{return}\ adj;}
+\DoxyCodeLine{00174\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_board_a5846bc789dca6f86d5c8b658c3602562}\index{Board@{Board}!getCell@{getCell}}
+\index{getCell@{getCell}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{getCell()}{getCell()}}
+{\footnotesize\ttfamily \label{class_board_a5846bc789dca6f86d5c8b658c3602562} 
+\mbox{\hyperlink{class_cell}{Cell}} \& Board\+::get\+Cell (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})}
+
+
+
+get\+Cell Returns a reference to the cell at the specified position. 
+
+\doxylink{class_board_a5846bc789dca6f86d5c8b658c3602562}{Board\+::get\+Cell} Returns a reference to the cell at the specified row and column.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row index of the cell. \\
+\hline
+{\em col} & The column index of the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the \doxylink{class_cell}{Cell} object.
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row index of the cell. \\
+\hline
+{\em col} & The column index of the cell. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the specified \doxylink{class_cell}{Cell}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00182}{182}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00183\ \{}
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[row][col];}
+\DoxyCodeLine{00185\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_board_a7eeeaf9eb3642a37669d86a70eb2e062}\index{Board@{Board}!initialize@{initialize}}
+\index{initialize@{initialize}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \label{class_board_a7eeeaf9eb3642a37669d86a70eb2e062} 
+void Board\+::initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+initialize Sets up the board by resetting cells, placing mines, and calculating adjacent mine counts. 
+
+\doxylink{class_board_a7eeeaf9eb3642a37669d86a70eb2e062}{Board\+::initialize} Initializes the board by resetting each cell, placing mines, and calculating adjacent mine counts for non-\/mine cells. 
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{comment}{//\ Reset\ each\ cell\ in\ the\ board.}}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\_rows}};\ r++)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}};\ c++)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[r][c].setRow(r);}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[r][c].setCol(c);}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[r][c].setIsMine(\textcolor{keyword}{false});}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[r][c].setIsRevealed(\textcolor{keyword}{false});}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[r][c].setAdjacentMines(0);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \}}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{comment}{//\ Generate\ a\ string\ representation\ of\ mine\ positions\ and\ place\ mines.}}
+\DoxyCodeLine{00034\ \ \ \ \ \mbox{\hyperlink{class_board_a6ca5e3012ebc96ee7471688defb583e8}{placeMines}}(\mbox{\hyperlink{class_board_ae774d5bc4b30e4bfde73652dcedfa1b0}{generateMines}}());}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ Calculate\ and\ set\ the\ number\ of\ adjacent\ mines\ for\ each\ non-\/mine\ cell.}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\_rows}};\ r++)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}};\ c++)\ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[r][c].isMine())\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ \mbox{\hyperlink{class_board_ad62917ff602e9b622b2609b88f38e32a}{countAdjacentMines}}(r,\ c);}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[r][c].setAdjacentMines(count);}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ \ \ \ \ \}}
+\DoxyCodeLine{00045\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_board_a6ca5e3012ebc96ee7471688defb583e8}\index{Board@{Board}!placeMines@{placeMines}}
+\index{placeMines@{placeMines}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{placeMines()}{placeMines()}}
+{\footnotesize\ttfamily \label{class_board_a6ca5e3012ebc96ee7471688defb583e8} 
+void Board\+::place\+Mines (\begin{DoxyParamCaption}\item[{std\+::string}]{mines}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+place\+Mines Places mines on the board according to the provided mine string. 
+
+\doxylink{class_board_a6ca5e3012ebc96ee7471688defb583e8}{Board\+::place\+Mines} Places mines on the board based on the provided string.
+
+
+\begin{DoxyParams}{Parameters}
+{\em mines} & A string where each character represents whether a cell is a mine (\textquotesingle{}1\textquotesingle{}) or not (\textquotesingle{}0\textquotesingle{}).\\
+\hline
+{\em mines} & A string where each character is \textquotesingle{}1\textquotesingle{} for a mine and \textquotesingle{}0\textquotesingle{} otherwise. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00083}{83}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00084\ \{}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ BOARD\_SIZE\ =\ mines.length();}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ BOARD\_SIZE;\ i++)\ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mines[i]\ ==\ \textcolor{charliteral}{'1'})\ \{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[i\ /\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}}][i\ \%\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}}].setIsMine(\textcolor{keyword}{true});}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00090\ \ \ \ \ \}}
+\DoxyCodeLine{00091\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_board_a1c206de7355046cd831dc24a12839843}\index{Board@{Board}!revealBoard@{revealBoard}}
+\index{revealBoard@{revealBoard}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{revealBoard()}{revealBoard()}}
+{\footnotesize\ttfamily \label{class_board_a1c206de7355046cd831dc24a12839843} 
+void Board\+::reveal\+Board (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+reveal\+Board Reveals all cells on the board. 
+
+\doxylink{class_board_a1c206de7355046cd831dc24a12839843}{Board\+::reveal\+Board} Reveals all cells on the board. 
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00256}{256}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00257\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\_rows}};\ r++)\ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}};\ c++)\ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[r][c].setIsRevealed(\textcolor{keyword}{true});}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00262\ \ \ \ \ \}}
+\DoxyCodeLine{00263\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_board_a80bb715a0e5ed787eaaa0bf567203d03}\index{Board@{Board}!revealCell@{revealCell}}
+\index{revealCell@{revealCell}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{revealCell()}{revealCell()}}
+{\footnotesize\ttfamily \label{class_board_a80bb715a0e5ed787eaaa0bf567203d03} 
+void Board\+::reveal\+Cell (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})}
+
+
+
+reveal\+Cell Reveals the cell at the given position and automatically reveals adjacent cells if the cell has no neighboring mines. 
+
+\doxylink{class_board_a80bb715a0e5ed787eaaa0bf567203d03}{Board\+::reveal\+Cell} Reveals the cell at (row, col) and expands to reveal adjacent cells if necessary.
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row index of the cell to reveal. \\
+\hline
+{\em col} & The column index of the cell to reveal.\\
+\hline
+{\em row} & The row index of the cell to reveal. \\
+\hline
+{\em col} & The column index of the cell to reveal.\\
+\hline
+\end{DoxyParams}
+This function uses a breadth-\/first search (BFS) approach to reveal all connected cells that have no adjacent mines. If the starting cell is a mine, it is not expanded. 
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00213}{213}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00214\ \{}
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ <\ 0\ ||\ row\ >=\ \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\_rows}}\ ||\ col\ <\ 0\ ||\ col\ >=\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}})\ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00217\ \ \ \ \ \}}
+\DoxyCodeLine{00218\ \ \ \ \ }
+\DoxyCodeLine{00219\ \ \ \ \ \textcolor{comment}{//\ Queue\ for\ BFS\ traversal.}}
+\DoxyCodeLine{00220\ \ \ \ \ std::queue<std::pair<int,\ int>>\ toProcess;}
+\DoxyCodeLine{00221\ \ \ \ \ toProcess.push(\{row,\ col\});}
+\DoxyCodeLine{00222\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordflow}{while}\ (!toProcess.empty())\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [currentRow,\ currentCol]\ =\ toProcess.front();}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ toProcess.pop();}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ Cell\ \&currentCell\ =\ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[currentRow][currentCol];}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Skip\ if\ the\ cell\ is\ already\ revealed\ or\ is\ a\ mine.}}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentCell.\mbox{\hyperlink{class_cell_a80ecf9c63de9e87dc969ef0156b55691}{isRevealed}}()\ ||\ currentCell.\mbox{\hyperlink{class_cell_a5f0d777884d1525d94f170cf990b2aa4}{isMine}}())\ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reveal\ the\ cell.}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ currentCell.\mbox{\hyperlink{class_cell_ad11f0f65957dbe7848fb8c676ca247ef}{setIsRevealed}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ no\ adjacent\ mines,\ add\ neighbors\ to\ the\ queue.}}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentCell.\mbox{\hyperlink{class_cell_a273bbdf9a307db2aa5d590e615068892}{adjacentMines}}()\ ==\ 0)\ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ std::array<Cell\ *,\ 8>\ adj\ =\ \mbox{\hyperlink{class_board_ab0e64ce17688943a00a7f76c7d784c48}{getAdjacentCells}}(currentRow,\ currentCol);}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (Cell\ *neighbor\ :\ adj)\ \{}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (neighbor\ \&\&\ !neighbor-\/>isRevealed()\ \&\&\ !neighbor-\/>isMine())\ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ neighborRow\ =\ neighbor-\/>row();}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ neighborCol\ =\ neighbor-\/>col();}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ toProcess.push(\{neighborRow,\ neighborCol\});}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00248\ \ \ \ \ \}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[row][col].setIsRevealed(\textcolor{keyword}{true});}
+\DoxyCodeLine{00251\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_board_ade35d2cb2a876b4da2c97faa878f29d1}\index{Board@{Board}!rowCount@{rowCount}}
+\index{rowCount@{rowCount}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{rowCount()}{rowCount()}}
+{\footnotesize\ttfamily \label{class_board_ade35d2cb2a876b4da2c97faa878f29d1} 
+int Board\+::row\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+row\+Count Returns the number of rows in the board. 
+
+\doxylink{class_board_ade35d2cb2a876b4da2c97faa878f29d1}{Board\+::row\+Count} Returns the total number of rows in the board.
+
+\begin{DoxyReturn}{Returns}
+The number of rows. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00191}{191}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00192\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\_rows}};}
+\DoxyCodeLine{00194\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_board_a2c3d4e5fad8c522c8e453bfa566cf348}\index{Board@{Board}!toggleFlag@{toggleFlag}}
+\index{toggleFlag@{toggleFlag}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{toggleFlag()}{toggleFlag()}}
+{\footnotesize\ttfamily \label{class_board_a2c3d4e5fad8c522c8e453bfa566cf348} 
+void Board\+::toggle\+Flag (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{col}{}\end{DoxyParamCaption})}
+
+
+
+toggle\+Flag Toggles the flagged state of the cell at the specified position. 
+
+\doxylink{class_board_a2c3d4e5fad8c522c8e453bfa566cf348}{Board\+::toggle\+Flag} Toggles the flagged state of the cell at (row, col).
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & The row index of the cell. \\
+\hline
+{\em col} & The column index of the cell. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{board_8cpp_source_l00270}{270}} of file \mbox{\hyperlink{board_8cpp_source}{board.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00271\ \{}
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{keywordflow}{if}\ (row\ <\ 0\ ||\ row\ >=\ \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\_rows}}\ ||\ col\ <\ 0\ ||\ col\ >=\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}})}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00274\ \ \ \ \ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}}[row][col].flipFlag();}
+\DoxyCodeLine{00275\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_board_a88d242d3190f0f5a3c7181ee8e74b575}\index{Board@{Board}!m\_cells@{m\_cells}}
+\index{m\_cells@{m\_cells}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{m\_cells}{m\_cells}}
+{\footnotesize\ttfamily \label{class_board_a88d242d3190f0f5a3c7181ee8e74b575} 
+QVector$<$QVector$<$\mbox{\hyperlink{class_cell}{Cell}}$>$ $>$ Board\+::m\+\_\+cells\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+2D grid of cells. 
+
+
+
+Definition at line \mbox{\hyperlink{board_8h_source_l00085}{85}} of file \mbox{\hyperlink{board_8h_source}{board.\+h}}.
+
+\Hypertarget{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}\index{Board@{Board}!m\_cols@{m\_cols}}
+\index{m\_cols@{m\_cols}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{m\_cols}{m\_cols}}
+{\footnotesize\ttfamily \label{class_board_a6b1546a351f03bfd3ac6f751bf1155ed} 
+int Board\+::m\+\_\+cols\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of columns in the board. 
+
+
+
+Definition at line \mbox{\hyperlink{board_8h_source_l00084}{84}} of file \mbox{\hyperlink{board_8h_source}{board.\+h}}.
+
+\Hypertarget{class_board_aaf3043dae2d80611c5b4d60e16147e69}\index{Board@{Board}!m\_rows@{m\_rows}}
+\index{m\_rows@{m\_rows}!Board@{Board}}
+\doxysubsubsection{\texorpdfstring{m\_rows}{m\_rows}}
+{\footnotesize\ttfamily \label{class_board_aaf3043dae2d80611c5b4d60e16147e69} 
+int Board\+::m\+\_\+rows\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Number of rows in the board. 
+
+
+
+Definition at line \mbox{\hyperlink{board_8h_source_l00083}{83}} of file \mbox{\hyperlink{board_8h_source}{board.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{board_8h}{board.\+h}}\item 
+src/\mbox{\hyperlink{board_8cpp}{board.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,55 @@
+\doxysection{mainwindow.\+h}
+\hypertarget{mainwindow_8h_source}{}\label{mainwindow_8h_source}\index{src/mainwindow.h@{src/mainwindow.h}}
+\mbox{\hyperlink{mainwindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ MAINWINDOW\_H}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ MAINWINDOW\_H}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QGridLayout>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QVector>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <QApplication>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{board_8h}{Board.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{qrightclickbutton_8h}{QRightClickButton.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00018}\mbox{\hyperlink{class_main_window}{00018}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{MainWindow}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00020}00020\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00022}00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{MainWindow}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\string~MainWindow}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00034}00034\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a042150f98db122f5c8278662e330fed2}{handleCellClick}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a4429173d634744f4982ab5854583e0fd}{handleCellRightClick}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_afd151b5ee20ec277fc345418c73234f1}{onWinRetry}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a309f0873e17a3cc352950646d584902d}{onWinExit}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_ad72a190bcc0161b60730ad8364c0e158}{onLoseRetry}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a94fe2d3bd4615cc9eb11ff4cfadf8421}{onLoseExit}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00070}00070\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00079}00079\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a7d9d8dfae0376e748bea20c4dca2c375}{showWinMessage}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_aca5263848796898245e2019bc833b0b6}{showLoseMessage}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{resetBoard}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00091}\mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{00091}}\ \ \ \ \ \mbox{\hyperlink{class_board}{Board}}\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}};\ \ \ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00092}\mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{00092}}\ \ \ \ \ QVector<QVector<QRightClickButton*>>\ \mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}};\ \ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00094}\mbox{\hyperlink{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}{00094}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}{m\_losingRow}};\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00095}\mbox{\hyperlink{class_main_window_a3ca2b714b81209a7661b283528061aa4}{00095}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_main_window_a3ca2b714b81209a7661b283528061aa4}{m\_losingCol}};\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00096}00096\ \};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8h_source_l00098}00098\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

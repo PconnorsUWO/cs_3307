@@ -1,0 +1,148 @@
+\doxysection{QRight\+Click\+Button Class Reference}
+\hypertarget{class_q_right_click_button}{}\label{class_q_right_click_button}\index{QRightClickButton@{QRightClickButton}}
+
+
+The \doxylink{class_q_right_click_button}{QRight\+Click\+Button} class.  
+
+
+
+
+{\ttfamily \#include $<$qrightclickbutton.\+h$>$}
+
+
+
+Inheritance diagram for QRight\+Click\+Button\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{class_q_right_click_button__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for QRight\+Click\+Button\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=178pt]{class_q_right_click_button__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_q_right_click_button_a38915875e7adcb8b5dee03e403af9f65}{right\+Clicked}} ()
+\begin{DoxyCompactList}\small\item\em right\+Clicked Signal emitted when the button is right-\/clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_q_right_click_button_a7858284dc569b8e1573022858211e80f}{QRight\+Click\+Button}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_q_right_click_button}{QRight\+Click\+Button} Constructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_q_right_click_button_a5cf1c413bbfa59ac54d131e153b8c3fd}{mouse\+Press\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}e) override
+\begin{DoxyCompactList}\small\item\em mouse\+Press\+Event Overrides the mouse press event. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_q_right_click_button}{QRight\+Click\+Button} class. 
+
+A subclass of QPush\+Button that emits a custom signal when the right mouse button is clicked. This allows for distinct handling of right-\/click events in the Minesweeper game. 
+
+Definition at line \mbox{\hyperlink{qrightclickbutton_8h_source_l00013}{13}} of file \mbox{\hyperlink{qrightclickbutton_8h_source}{qrightclickbutton.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_q_right_click_button_a7858284dc569b8e1573022858211e80f}\index{QRightClickButton@{QRightClickButton}!QRightClickButton@{QRightClickButton}}
+\index{QRightClickButton@{QRightClickButton}!QRightClickButton@{QRightClickButton}}
+\doxysubsubsection{\texorpdfstring{QRightClickButton()}{QRightClickButton()}}
+{\footnotesize\ttfamily \label{class_q_right_click_button_a7858284dc569b8e1573022858211e80f} 
+QRight\+Click\+Button\+::\+QRight\+Click\+Button (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxylink{class_q_right_click_button}{QRight\+Click\+Button} Constructor. 
+
+\doxylink{class_q_right_click_button_a7858284dc569b8e1573022858211e80f}{QRight\+Click\+Button\+::\+QRight\+Click\+Button} Constructs a \doxylink{class_q_right_click_button}{QRight\+Click\+Button}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Pointer to the parent widget (default is nullptr).\\
+\hline
+{\em parent} & Pointer to the parent widget.\\
+\hline
+\end{DoxyParams}
+Simply calls the base class constructor. 
+
+Definition at line \mbox{\hyperlink{qrightclickbutton_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{qrightclickbutton_8cpp_source}{qrightclickbutton.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :}
+\DoxyCodeLine{00010\ \ \ \ \ QPushButton(parent) }
+\DoxyCodeLine{00011\ \{}
+\DoxyCodeLine{00012\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_q_right_click_button_a5cf1c413bbfa59ac54d131e153b8c3fd}\index{QRightClickButton@{QRightClickButton}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!QRightClickButton@{QRightClickButton}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily \label{class_q_right_click_button_a5cf1c413bbfa59ac54d131e153b8c3fd} 
+void QRight\+Click\+Button\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event \texorpdfstring{$\ast$}{*}}]{e}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+mouse\+Press\+Event Overrides the mouse press event. 
+
+\doxylink{class_q_right_click_button_a5cf1c413bbfa59ac54d131e153b8c3fd}{QRight\+Click\+Button\+::mouse\+Press\+Event} Handles mouse press events.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The mouse event.\\
+\hline
+\end{DoxyParams}
+If the right mouse button is pressed, the right\+Clicked signal is emitted. Then the base class\textquotesingle{}s mouse\+Press\+Event is called.
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & The mouse event.\\
+\hline
+\end{DoxyParams}
+If the event corresponds to a right-\/click, the custom signal right\+Clicked is emitted. Afterwards, the default QPush\+Button behavior for mouse press events is executed. 
+
+Definition at line \mbox{\hyperlink{qrightclickbutton_8cpp_source_l00021}{21}} of file \mbox{\hyperlink{qrightclickbutton_8cpp_source}{qrightclickbutton.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ right\ mouse\ button\ was\ pressed.}}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (e-\/>button()\ ==\ Qt::RightButton)\ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ emit\ \mbox{\hyperlink{class_q_right_click_button_a38915875e7adcb8b5dee03e403af9f65}{rightClicked}}();}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ Call\ the\ base\ class\ implementation\ to\ handle\ other\ behaviors.}}
+\DoxyCodeLine{00028\ \ \ \ \ QPushButton::mousePressEvent(e);}
+\DoxyCodeLine{00029\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_q_right_click_button_a38915875e7adcb8b5dee03e403af9f65}\index{QRightClickButton@{QRightClickButton}!rightClicked@{rightClicked}}
+\index{rightClicked@{rightClicked}!QRightClickButton@{QRightClickButton}}
+\doxysubsubsection{\texorpdfstring{rightClicked}{rightClicked}}
+{\footnotesize\ttfamily \label{class_q_right_click_button_a38915875e7adcb8b5dee03e403af9f65} 
+void QRight\+Click\+Button\+::right\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+right\+Clicked Signal emitted when the button is right-\/clicked. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{qrightclickbutton_8h}{qrightclickbutton.\+h}}\item 
+src/\mbox{\hyperlink{qrightclickbutton_8cpp}{qrightclickbutton.\+cpp}}\end{DoxyCompactItemize}

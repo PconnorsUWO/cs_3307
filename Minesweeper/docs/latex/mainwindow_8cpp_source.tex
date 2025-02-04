@@ -1,0 +1,285 @@
+\doxysection{mainwindow.\+cpp}
+\hypertarget{mainwindow_8cpp_source}{}\label{mainwindow_8cpp_source}\index{src/mainwindow.cpp@{src/mainwindow.cpp}}
+\mbox{\hyperlink{mainwindow_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mainwindow_8h}{mainwindow.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{titlebar_8h}{titlebar.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QFile>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QMessageBox>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QIcon>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <QPixmap>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <QGridLayout>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <QVBoxLayout>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <QApplication>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00019}\mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{00019}}\ \mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{MainWindow::MainWindow}}(QWidget\ *parent)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00020}00020\ \ \ \ \ :\ QMainWindow(parent)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00021}00021\ \ \ \ \ ,\ \mbox{\hyperlink{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}{m\_losingRow}}(-\/1)\ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ to\ an\ invalid\ value.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00022}00022\ \ \ \ \ ,\ \mbox{\hyperlink{class_main_window_a3ca2b714b81209a7661b283528061aa4}{m\_losingCol}}(-\/1)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{comment}{//\ Remove\ native\ window\ decorations.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00025}00025\ \ \ \ \ setWindowFlags(Qt::FramelessWindowHint);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ central\ widget\ for\ the\ main\ window.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00028}00028\ \ \ \ \ QWidget\ *centralWidget\ =\ \textcolor{keyword}{new}\ QWidget(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00029}00029\ \ \ \ \ setCentralWidget(centralWidget);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ vertical\ layout\ that\ will\ hold\ the\ custom\ title\ bar\ and\ the\ game\ board.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00032}00032\ \ \ \ \ QVBoxLayout\ *mainLayout\ =\ \textcolor{keyword}{new}\ QVBoxLayout(centralWidget);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00033}00033\ \ \ \ \ mainLayout-\/>setContentsMargins(0,\ 0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00034}00034\ \ \ \ \ mainLayout-\/>setSpacing(0);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{comment}{//\ Create\ and\ add\ the\ custom\ title\ bar.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00037}00037\ \ \ \ \ \mbox{\hyperlink{class_title_bar}{TitleBar}}\ *titleBar\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_title_bar}{TitleBar}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00038}00038\ \ \ \ \ mainLayout-\/>addWidget(titleBar);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00040}00040\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ widget\ to\ hold\ the\ game\ board.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00041}00041\ \ \ \ \ QWidget\ *boardWidget\ =\ \textcolor{keyword}{new}\ QWidget(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00042}00042\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{comment}{//\ Use\ a\ grid\ layout\ for\ the\ Minesweeper\ board.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00044}00044\ \ \ \ \ QGridLayout\ *gridLayout\ =\ \textcolor{keyword}{new}\ QGridLayout(boardWidget);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00045}00045\ \ \ \ \ gridLayout-\/>setHorizontalSpacing(0);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00046}00046\ \ \ \ \ gridLayout-\/>setVerticalSpacing(0);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00047}00047\ \ \ \ \ gridLayout-\/>setContentsMargins(-\/30,\ 0,\ -\/30,\ 0);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00048}00048\ \ \ \ \ boardWidget-\/>setLayout(gridLayout);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00050}00050\ \ \ \ \ \textcolor{comment}{//\ Add\ the\ board\ widget\ to\ the\ main\ layout.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00051}00051\ \ \ \ \ mainLayout-\/>addWidget(boardWidget);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{comment}{//\ Initialize\ the\ game\ board.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00054}00054\ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.initialize();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//\ Resize\ and\ populate\ the\ m\_buttons\ container\ with\ custom\ right-\/click\ buttons.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00057}00057\ \ \ \ \ \mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}.resize(\mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.rowCount());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.rowCount();\ r++)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}[r].resize(\mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.colCount());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.colCount();\ c++)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_right_click_button}{QRightClickButton}}\ *btn\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{class_q_right_click_button}{QRightClickButton}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setFixedSize(40,\ 40);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Remove\ default\ borders/paddings.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setStyleSheet(\textcolor{stringliteral}{"{}border:\ none;\ padding:\ -\/1px;\ margin:\ 0px;"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ gridLayout-\/>addWidget(btn,\ r,\ c);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}[r][c]\ =\ btn;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ connect(btn,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{class_main_window_a042150f98db122f5c8278662e330fed2}{MainWindow::handleCellClick}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ connect(btn,\ \&\mbox{\hyperlink{class_q_right_click_button_a38915875e7adcb8b5dee03e403af9f65}{QRightClickButton::rightClicked}},\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{class_main_window_a4429173d634744f4982ab5854583e0fd}{MainWindow::handleCellRightClick}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00073}00073\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00075}00075\ \ \ \ \ \textcolor{comment}{//\ Refresh\ the\ board\ display\ to\ match\ the\ initial\ game\ state.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00082}\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{00082}}\ \mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{MainWindow::\string~MainWindow}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00083}00083\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00084}00084\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00092}\mbox{\hyperlink{class_main_window_a042150f98db122f5c8278662e330fed2}{00092}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a042150f98db122f5c8278662e330fed2}{MainWindow::handleCellClick}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00093}00093\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00094}00094\ \ \ \ \ \mbox{\hyperlink{class_q_right_click_button}{QRightClickButton}}\ *clickedButton\ =\ qobject\_cast<QRightClickButton*>(sender());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (!clickedButton)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordtype}{int}\ clickedRow\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordtype}{int}\ clickedCol\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.rowCount();\ r++)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.colCount();\ c++)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}[r][c]\ ==\ clickedButton)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clickedRow\ =\ r;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clickedCol\ =\ c;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clickedRow\ !=\ -\/1)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (clickedRow\ ==\ -\/1\ ||\ clickedCol\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}Clicked\ button\ not\ found\ in\ the\ grid."{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00115}00115\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00117}00117\ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.revealCell(clickedRow,\ clickedCol);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00118}00118\ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00120}00120\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ clicked\ cell\ is\ a\ mine\ (loss\ condition).}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.getCell(clickedRow,\ clickedCol).isMine())\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Store\ the\ coordinates\ of\ the\ losing\ cell.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}{m\_losingRow}}\ =\ clickedRow;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a3ca2b714b81209a7661b283528061aa4}{m\_losingCol}}\ =\ clickedCol;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reveal\ the\ entire\ board.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.revealBoard();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Display\ the\ losing\ message.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_aca5263848796898245e2019bc833b0b6}{showLoseMessage}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00133}00133\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00135}00135\ \ \ \ \ \textcolor{comment}{//\ Check\ win\ condition.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00136}00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.checkWinCondition())\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.revealBoard();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a7d9d8dfae0376e748bea20c4dca2c375}{showWinMessage}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00141}00141\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00142}00142\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00149}\mbox{\hyperlink{class_main_window_a4429173d634744f4982ab5854583e0fd}{00149}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a4429173d634744f4982ab5854583e0fd}{MainWindow::handleCellRightClick}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00150}00150\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00151}00151\ \ \ \ \ \mbox{\hyperlink{class_q_right_click_button}{QRightClickButton}}\ *clickedButton\ =\ qobject\_cast<QRightClickButton*>(sender());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00152}00152\ \ \ \ \ \textcolor{keywordflow}{if}\ (!clickedButton)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00155}00155\ \ \ \ \ \textcolor{keywordtype}{int}\ clickedRow\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00156}00156\ \ \ \ \ \textcolor{keywordtype}{int}\ clickedCol\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.rowCount();\ r++)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.colCount();\ c++)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}[r][c]\ ==\ clickedButton)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clickedRow\ =\ r;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clickedCol\ =\ c;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clickedRow\ !=\ -\/1)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00167}00167\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00169}00169\ \ \ \ \ \textcolor{keywordflow}{if}\ (clickedRow\ ==\ -\/1\ ||\ clickedCol\ ==\ -\/1)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}Right-\/clicked\ button\ not\ found\ in\ the\ grid."{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00172}00172\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00174}00174\ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.toggleFlag(clickedRow,\ clickedCol);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00175}00175\ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00176}00176\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00177}00177\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.checkWinCondition())\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a7d9d8dfae0376e748bea20c4dca2c375}{showWinMessage}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00180}00180\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00181}00181\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00189}\mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{00189}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{MainWindow::updateBoardDisplay}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00190}00190\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00191}00191\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.rowCount();\ r++)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.colCount();\ c++)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_cell}{Cell}}\ \&cell\ =\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.getCell(r,\ c);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_q_right_click_button}{QRightClickButton}}\ *btn\ =\ \mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}[r][c];}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clear\ previous\ text\ and\ icon.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setIcon(QIcon());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ QString\ iconPath;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cell.\mbox{\hyperlink{class_cell_a80ecf9c63de9e87dc969ef0156b55691}{isRevealed}}())\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cell.\mbox{\hyperlink{class_cell_a5f0d777884d1525d94f170cf990b2aa4}{isMine}}())\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ bomb-\/explode\ icon\ for\ the\ losing\ cell.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ \mbox{\hyperlink{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}{m\_losingRow}}\ \&\&\ c\ ==\ \mbox{\hyperlink{class_main_window_a3ca2b714b81209a7661b283528061aa4}{m\_losingCol}})}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ \textcolor{stringliteral}{"{}:/resources/bomb-\/explode.png"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ \textcolor{stringliteral}{"{}:/resources/bomb-\/revealed.png"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ adj\ =\ cell.\mbox{\hyperlink{class_cell_a273bbdf9a307db2aa5d590e615068892}{adjacentMines}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (adj\ >\ 0)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ QString(\textcolor{stringliteral}{"{}:/resources/\%1-\/tile.png"{}}).arg(adj);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ \textcolor{stringliteral}{"{}:/resources/general-\/tile-\/clicked.png"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cell.\mbox{\hyperlink{class_cell_a7767d6d6077322cb2b85e552f0e9ae90}{isFlagged}}())}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ \textcolor{stringliteral}{"{}:/resources/flag.png"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ \textcolor{stringliteral}{"{}:/resources/general-\/tile.png"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ QPixmap\ pixmap(iconPath);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pixmap.isNull())\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QPixmap\ scaledPixmap\ =\ pixmap.scaled(btn-\/>size(),\ Qt::KeepAspectRatio,\ Qt::SmoothTransformation);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QIcon\ icon;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ icon.addPixmap(scaledPixmap,\ QIcon::Normal);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ icon.addPixmap(scaledPixmap,\ QIcon::Disabled);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setIcon(icon);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setIconSize(btn-\/>size());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}[Error]\ Failed\ to\ load\ icon:"{}}\ <<\ iconPath;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00236}00236\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00237}00237\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00238}00238\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00242}\mbox{\hyperlink{class_main_window_a7d9d8dfae0376e748bea20c4dca2c375}{00242}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a7d9d8dfae0376e748bea20c4dca2c375}{MainWindow::showWinMessage}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00243}00243\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00244}00244\ \ \ \ \ QMessageBox\ msgBox;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00245}00245\ \ \ \ \ msgBox.setWindowTitle(\textcolor{stringliteral}{"{}You\ Win!"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00246}00246\ \ \ \ \ msgBox.setText(\textcolor{stringliteral}{"{}Congratulations!\ You've\ cleared\ the\ board."{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00247}00247\ \ \ \ \ msgBox.setIcon(QMessageBox::Information);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00249}00249\ \ \ \ \ \textcolor{comment}{//\ Add\ Retry\ and\ Exit\ buttons.\ (No\ need\ to\ store\ the\ exit\ button\ if\ unused)}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00250}00250\ \ \ \ \ QPushButton\ *retryButton\ =\ msgBox.addButton(\textcolor{stringliteral}{"{}Retry"{}},\ QMessageBox::AcceptRole);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00251}00251\ \ \ \ \ msgBox.addButton(\textcolor{stringliteral}{"{}Exit"{}},\ QMessageBox::RejectRole);\ \ \textcolor{comment}{//\ No\ variable\ stored}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00253}00253\ \ \ \ \ msgBox.exec();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00255}00255\ \ \ \ \ \textcolor{keywordflow}{if}\ (msgBox.clickedButton()\ ==\ retryButton)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{resetBoard}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00257}00257\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ QApplication::quit();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00259}00259\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00260}00260\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00261}00261\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00265}\mbox{\hyperlink{class_main_window_aca5263848796898245e2019bc833b0b6}{00265}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_aca5263848796898245e2019bc833b0b6}{MainWindow::showLoseMessage}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00266}00266\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00267}00267\ \ \ \ \ QMessageBox\ msgBox;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00268}00268\ \ \ \ \ msgBox.setWindowTitle(\textcolor{stringliteral}{"{}You\ Lose!"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00269}00269\ \ \ \ \ msgBox.setText(\textcolor{stringliteral}{"{}Oops!\ You\ clicked\ on\ a\ bomb."{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00270}00270\ \ \ \ \ msgBox.setIcon(QMessageBox::Critical);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00272}00272\ \ \ \ \ \textcolor{comment}{//\ Add\ Retry\ and\ Exit\ buttons.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00273}00273\ \ \ \ \ QPushButton\ *retryButton\ =\ msgBox.addButton(\textcolor{stringliteral}{"{}Retry"{}},\ QMessageBox::AcceptRole);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00274}00274\ \ \ \ \ msgBox.addButton(\textcolor{stringliteral}{"{}Exit"{}},\ QMessageBox::RejectRole);\ \ \textcolor{comment}{//\ No\ variable\ stored}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00276}00276\ \ \ \ \ msgBox.exec();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00278}00278\ \ \ \ \ \textcolor{keywordflow}{if}\ (msgBox.clickedButton()\ ==\ retryButton)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{resetBoard}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00280}00280\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ QApplication::quit();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00282}00282\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00283}00283\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00288}\mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{00288}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{MainWindow::resetBoard}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00289}00289\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00290}00290\ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.initialize();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00291}00291\ \ \ \ \ \textcolor{comment}{//\ Reset\ the\ losing\ cell\ coordinates.}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00292}00292\ \ \ \ \ \mbox{\hyperlink{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}{m\_losingRow}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00293}00293\ \ \ \ \ \mbox{\hyperlink{class_main_window_a3ca2b714b81209a7661b283528061aa4}{m\_losingCol}}\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00294}00294\ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00295}00295\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00296}00296\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00300}\mbox{\hyperlink{class_main_window_afd151b5ee20ec277fc345418c73234f1}{00300}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_afd151b5ee20ec277fc345418c73234f1}{MainWindow::onWinRetry}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00301}00301\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00302}00302\ \ \ \ \ \mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{resetBoard}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00303}00303\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00304}00304\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00308}\mbox{\hyperlink{class_main_window_a309f0873e17a3cc352950646d584902d}{00308}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a309f0873e17a3cc352950646d584902d}{MainWindow::onWinExit}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00309}00309\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00310}00310\ \ \ \ \ QApplication::quit();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00311}00311\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00316}\mbox{\hyperlink{class_main_window_ad72a190bcc0161b60730ad8364c0e158}{00316}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_ad72a190bcc0161b60730ad8364c0e158}{MainWindow::onLoseRetry}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00317}00317\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00318}00318\ \ \ \ \ \mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{resetBoard}}();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00319}00319\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00320}00320\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00324}\mbox{\hyperlink{class_main_window_a94fe2d3bd4615cc9eb11ff4cfadf8421}{00324}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_main_window_a94fe2d3bd4615cc9eb11ff4cfadf8421}{MainWindow::onLoseExit}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00325}00325\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00326}00326\ \ \ \ \ QApplication::quit();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00327}00327\ \}}
+
+\end{DoxyCode}

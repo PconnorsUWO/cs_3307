@@ -1,0 +1,40 @@
+\doxysection{titlebar.\+h}
+\hypertarget{titlebar_8h_source}{}\label{titlebar_8h_source}\index{src/titlebar.h@{src/titlebar.h}}
+\mbox{\hyperlink{titlebar_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ TITLEBAR\_H}}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ TITLEBAR\_H}}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QWidget>}}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QPoint>}}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00014}00014\ \textcolor{keyword}{class\ }QLabel;}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00015}00015\ \textcolor{keyword}{class\ }QPushButton;}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00017}\mbox{\hyperlink{class_title_bar}{00017}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_title_bar_aac10b1c6b66a54b45c5ec6fe9930ac0a}{TitleBar}}\ :\ \textcolor{keyword}{public}\ QWidget}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00019}00019\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00020}00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_title_bar_aac10b1c6b66a54b45c5ec6fe9930ac0a}{TitleBar}}(QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00027}00027\ signals:}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00031}\mbox{\hyperlink{class_title_bar_a6ba829509f9de537d10c2f6c98569aba}{00031}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_title_bar_a6ba829509f9de537d10c2f6c98569aba}{minimizeRequested}}();}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00036}\mbox{\hyperlink{class_title_bar_a3b515bda0009b6d622b079f7486471ac}{00036}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_title_bar_a3b515bda0009b6d622b079f7486471ac}{closeRequested}}();}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00038}00038\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_title_bar_a0ec84d2661322f3500eb23c60ab6dd71}{mousePressEvent}}(QMouseEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00049}00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_title_bar_aa8898dce3ec15a144a9912fd6944e0c5}{mouseMoveEvent}}(QMouseEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00051}00051\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00052}\mbox{\hyperlink{class_title_bar_a4c39050059d8cd18e5eb48ca413b435f}{00052}}\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_title_bar_a4c39050059d8cd18e5eb48ca413b435f}{m\_iconLabel}};\ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00053}\mbox{\hyperlink{class_title_bar_a5cbf42ff9112157ee26e1c4d135dbf5e}{00053}}\ \ \ \ \ QLabel\ *\mbox{\hyperlink{class_title_bar_a5cbf42ff9112157ee26e1c4d135dbf5e}{m\_titleLabel}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00054}\mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{00054}}\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}};\ \ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00055}\mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{00055}}\ \ \ \ \ QPushButton\ *\mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00056}\mbox{\hyperlink{class_title_bar_a5c004497dcbbc1ea5cf2ffb769470f68}{00056}}\ \ \ \ \ QPoint\ \mbox{\hyperlink{class_title_bar_a5c004497dcbbc1ea5cf2ffb769470f68}{m\_dragPosition}};\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00057}00057\ \};}
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{titlebar_8h_source_l00059}00059\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ TITLEBAR\_H}}
+
+\end{DoxyCode}

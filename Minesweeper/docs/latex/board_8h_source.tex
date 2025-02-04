@@ -1,0 +1,54 @@
+\doxysection{board.\+h}
+\hypertarget{board_8h_source}{}\label{board_8h_source}\index{src/board.h@{src/board.h}}
+\mbox{\hyperlink{board_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ BOARD\_H}}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ BOARD\_H}}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QVector>}}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{cell_8h}{cell.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00020}\mbox{\hyperlink{class_board}{00020}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_board_a47b1895375dc7cb23f42ad9bf035170c}{Board}}}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00022}00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{class_board_a47b1895375dc7cb23f42ad9bf035170c}{Board}}(\textcolor{keywordtype}{int}\ rows\ =\ 12,\ \textcolor{keywordtype}{int}\ cols\ =\ 12);}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a7eeeaf9eb3642a37669d86a70eb2e062}{initialize}}();}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00040}00040\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_board_ac9bb889bab8a69f6283661a325a9130b}{checkWinCondition}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{class_cell}{Cell}}\&\ \mbox{\hyperlink{class_board_a5846bc789dca6f86d5c8b658c3602562}{getCell}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a80bb715a0e5ed787eaaa0bf567203d03}{revealCell}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a2c3d4e5fad8c522c8e453bfa566cf348}{toggleFlag}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col);}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a1c206de7355046cd831dc24a12839843}{revealBoard}}();}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00074}00074\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_board_ade35d2cb2a876b4da2c97faa878f29d1}{rowCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00080}00080\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_board_a8486993f6c7841ebaf2596ee9179ac3b}{colCount}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00082}00082\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00083}\mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{00083}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_board_aaf3043dae2d80611c5b4d60e16147e69}{m\_rows}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00084}\mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{00084}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_board_a6b1546a351f03bfd3ac6f751bf1155ed}{m\_cols}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00085}\mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{00085}}\ \ \ \ \ QVector<QVector<Cell>>\ \mbox{\hyperlink{class_board_a88d242d3190f0f5a3c7181ee8e74b575}{m\_cells}};\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00091}00091\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_board_a6ca5e3012ebc96ee7471688defb583e8}{placeMines}}(std::string\ mines);}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00099}00099\ \ \ \ \ std::array<Cell\ *,\ 8>\ \mbox{\hyperlink{class_board_ab0e64ce17688943a00a7f76c7d784c48}{getAdjacentCells}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00100}00100\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00105}00105\ \ \ \ \ std::string\ \mbox{\hyperlink{class_board_ae774d5bc4b30e4bfde73652dcedfa1b0}{generateMines}}();}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00113}00113\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_board_ad62917ff602e9b622b2609b88f38e32a}{countAdjacentMines}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ col)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00114}00114\ \};}
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{board_8h_source_l00116}00116\ \textcolor{preprocessor}{\#endif\ }}
+
+\end{DoxyCode}

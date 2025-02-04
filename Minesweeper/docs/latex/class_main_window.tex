@@ -1,0 +1,635 @@
+\doxysection{Main\+Window Class Reference}
+\hypertarget{class_main_window}{}\label{class_main_window}\index{MainWindow@{MainWindow}}
+
+
+The \doxylink{class_main_window}{Main\+Window} class.  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+
+
+Inheritance diagram for Main\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=160pt]{class_main_window__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Main\+Window\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{class_main_window__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_main_window}{Main\+Window} Constructs a new \doxylink{class_main_window}{Main\+Window}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{\texorpdfstring{$\sim$}{\string~}\+Main\+Window}} ()
+\begin{DoxyCompactList}\small\item\em \texorpdfstring{$\sim$}{\string~}\+Main\+Window Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_a042150f98db122f5c8278662e330fed2}{handle\+Cell\+Click}} ()
+\begin{DoxyCompactList}\small\item\em handle\+Cell\+Click Handles left-\/click events on board cells. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a4429173d634744f4982ab5854583e0fd}{handle\+Cell\+Right\+Click}} ()
+\begin{DoxyCompactList}\small\item\em handle\+Cell\+Right\+Click Handles right-\/click events on board cells. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_afd151b5ee20ec277fc345418c73234f1}{on\+Win\+Retry}} ()
+\begin{DoxyCompactList}\small\item\em on\+Win\+Retry Slot for handling a retry after a win. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a309f0873e17a3cc352950646d584902d}{on\+Win\+Exit}} ()
+\begin{DoxyCompactList}\small\item\em on\+Win\+Exit Slot for handling application exit after a win. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_ad72a190bcc0161b60730ad8364c0e158}{on\+Lose\+Retry}} ()
+\begin{DoxyCompactList}\small\item\em on\+Lose\+Retry Slot for handling a retry after a loss. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a94fe2d3bd4615cc9eb11ff4cfadf8421}{on\+Lose\+Exit}} ()
+\begin{DoxyCompactList}\small\item\em on\+Lose\+Exit Slot for handling application exit after a loss. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{update\+Board\+Display}} ()
+\begin{DoxyCompactList}\small\item\em update\+Board\+Display Refreshes the UI to reflect the current state of the board. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a7d9d8dfae0376e748bea20c4dca2c375}{show\+Win\+Message}} ()
+\begin{DoxyCompactList}\small\item\em show\+Win\+Message Displays a message box when the player wins. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_aca5263848796898245e2019bc833b0b6}{show\+Lose\+Message}} ()
+\begin{DoxyCompactList}\small\item\em show\+Lose\+Message Displays a message box when the player loses. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{reset\+Board}} ()
+\begin{DoxyCompactList}\small\item\em reset\+Board Resets the board to start a new game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_board}{Board}} \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\+\_\+board}}
+\begin{DoxyCompactList}\small\item\em The Minesweeper game board. \end{DoxyCompactList}\item 
+QVector$<$ QVector$<$ \mbox{\hyperlink{class_q_right_click_button}{QRight\+Click\+Button}} \texorpdfstring{$\ast$}{*} $>$ $>$ \mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\+\_\+buttons}}
+\begin{DoxyCompactList}\small\item\em Grid of buttons representing each cell. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}{m\+\_\+losing\+Row}}
+\begin{DoxyCompactList}\small\item\em Row index of the cell that triggered a loss. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_main_window_a3ca2b714b81209a7661b283528061aa4}{m\+\_\+losing\+Col}}
+\begin{DoxyCompactList}\small\item\em Column index of the cell that triggered a loss. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{class_main_window}{Main\+Window} class. 
+
+Represents the main window of the Minesweeper application. It sets up the UI layout, integrates the custom title bar, manages the game board and its display, and handles user interactions such as left and right clicks on the cells. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8h_source_l00018}{18}} of file \mbox{\hyperlink{mainwindow_8h_source}{mainwindow.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_main_window_a996c5a2b6f77944776856f08ec30858d}\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily \label{class_main_window_a996c5a2b6f77944776856f08ec30858d} 
+Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxylink{class_main_window}{Main\+Window} Constructs a new \doxylink{class_main_window}{Main\+Window}. 
+
+\doxylink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{Main\+Window\+::\+Main\+Window} Constructs the main window of the Minesweeper game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Pointer to the parent widget (default is nullptr).\\
+\hline
+{\em parent} & Pointer to the parent widget.\\
+\hline
+\end{DoxyParams}
+This constructor sets up the custom title bar, creates the grid layout for the game board, initializes the board and buttons, and connects the necessary signals for cell interactions. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00019}{19}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00020\ \ \ \ \ :\ QMainWindow(parent)}
+\DoxyCodeLine{00021\ \ \ \ \ ,\ \mbox{\hyperlink{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}{m\_losingRow}}(-\/1)\ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ to\ an\ invalid\ value.}}
+\DoxyCodeLine{00022\ \ \ \ \ ,\ \mbox{\hyperlink{class_main_window_a3ca2b714b81209a7661b283528061aa4}{m\_losingCol}}(-\/1) }
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ Remove\ native\ window\ decorations.}}
+\DoxyCodeLine{00025\ \ \ \ \ setWindowFlags(Qt::FramelessWindowHint);}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ central\ widget\ for\ the\ main\ window.}}
+\DoxyCodeLine{00028\ \ \ \ \ QWidget\ *centralWidget\ =\ \textcolor{keyword}{new}\ QWidget(\textcolor{keyword}{this});}
+\DoxyCodeLine{00029\ \ \ \ \ setCentralWidget(centralWidget);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ vertical\ layout\ that\ will\ hold\ the\ custom\ title\ bar\ and\ the\ game\ board.}}
+\DoxyCodeLine{00032\ \ \ \ \ QVBoxLayout\ *mainLayout\ =\ \textcolor{keyword}{new}\ QVBoxLayout(centralWidget);}
+\DoxyCodeLine{00033\ \ \ \ \ mainLayout-\/>setContentsMargins(0,\ 0,\ 0,\ 0);}
+\DoxyCodeLine{00034\ \ \ \ \ mainLayout-\/>setSpacing(0);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ Create\ and\ add\ the\ custom\ title\ bar.}}
+\DoxyCodeLine{00037\ \ \ \ \ TitleBar\ *titleBar\ =\ \textcolor{keyword}{new}\ TitleBar(\textcolor{keyword}{this});}
+\DoxyCodeLine{00038\ \ \ \ \ mainLayout-\/>addWidget(titleBar);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ widget\ to\ hold\ the\ game\ board.}}
+\DoxyCodeLine{00041\ \ \ \ \ QWidget\ *boardWidget\ =\ \textcolor{keyword}{new}\ QWidget(\textcolor{keyword}{this});}
+\DoxyCodeLine{00042\ \ \ \ \ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{comment}{//\ Use\ a\ grid\ layout\ for\ the\ Minesweeper\ board.}}
+\DoxyCodeLine{00044\ \ \ \ \ QGridLayout\ *gridLayout\ =\ \textcolor{keyword}{new}\ QGridLayout(boardWidget);}
+\DoxyCodeLine{00045\ \ \ \ \ gridLayout-\/>setHorizontalSpacing(0);}
+\DoxyCodeLine{00046\ \ \ \ \ gridLayout-\/>setVerticalSpacing(0);}
+\DoxyCodeLine{00047\ \ \ \ \ gridLayout-\/>setContentsMargins(-\/30,\ 0,\ -\/30,\ 0);}
+\DoxyCodeLine{00048\ \ \ \ \ boardWidget-\/>setLayout(gridLayout);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{comment}{//\ Add\ the\ board\ widget\ to\ the\ main\ layout.}}
+\DoxyCodeLine{00051\ \ \ \ \ mainLayout-\/>addWidget(boardWidget);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{comment}{//\ Initialize\ the\ game\ board.}}
+\DoxyCodeLine{00054\ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.initialize();}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{comment}{//\ Resize\ and\ populate\ the\ m\_buttons\ container\ with\ custom\ right-\/click\ buttons.}}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}.resize(\mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.rowCount());}
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.rowCount();\ r++)\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}[r].resize(\mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.colCount());}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.colCount();\ c++)\ \{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ QRightClickButton\ *btn\ =\ \textcolor{keyword}{new}\ QRightClickButton(\textcolor{keyword}{this});}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setFixedSize(40,\ 40);}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Remove\ default\ borders/paddings.}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setStyleSheet(\textcolor{stringliteral}{"{}border:\ none;\ padding:\ -\/1px;\ margin:\ 0px;"{}});}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ gridLayout-\/>addWidget(btn,\ r,\ c);}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}[r][c]\ =\ btn;}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ connect(btn,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{class_main_window_a042150f98db122f5c8278662e330fed2}{MainWindow::handleCellClick}});}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ connect(btn,\ \&\mbox{\hyperlink{class_q_right_click_button_a38915875e7adcb8b5dee03e403af9f65}{QRightClickButton::rightClicked}},\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{class_main_window_a4429173d634744f4982ab5854583e0fd}{MainWindow::handleCellRightClick}});}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00073\ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ Refresh\ the\ board\ display\ to\ match\ the\ initial\ game\ state.}}
+\DoxyCodeLine{00076\ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{00077\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}\index{MainWindow@{MainWindow}!````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}}
+\index{````~MainWindow@{\texorpdfstring{$\sim$}{\string~}MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MainWindow()}{\string~MainWindow()}}
+{\footnotesize\ttfamily \label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7} 
+Main\+Window\+::\texorpdfstring{$\sim$}{\string~}\+Main\+Window (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+\texorpdfstring{$\sim$}{\string~}\+Main\+Window Destructor. 
+
+\doxylink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{Main\+Window\+::\texorpdfstring{$\sim$}{\string~}\+Main\+Window} Destructor. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00082}{82}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00083\ \{}
+\DoxyCodeLine{00084\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_main_window_a042150f98db122f5c8278662e330fed2}\index{MainWindow@{MainWindow}!handleCellClick@{handleCellClick}}
+\index{handleCellClick@{handleCellClick}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{handleCellClick}{handleCellClick}}
+{\footnotesize\ttfamily \label{class_main_window_a042150f98db122f5c8278662e330fed2} 
+void Main\+Window\+::handle\+Cell\+Click (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+handle\+Cell\+Click Handles left-\/click events on board cells. 
+
+\doxylink{class_main_window_a042150f98db122f5c8278662e330fed2}{Main\+Window\+::handle\+Cell\+Click} Slot that processes left-\/click events on cells.
+
+Reveals the clicked cell and, if applicable, triggers a board reveal on game over or checks for a win condition.
+
+Determines which button was clicked, reveals the corresponding cell, checks for a mine (loss), and verifies if the win condition has been met. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00092}{92}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093\ \{}
+\DoxyCodeLine{00094\ \ \ \ \ QRightClickButton\ *clickedButton\ =\ qobject\_cast<QRightClickButton*>(sender());}
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (!clickedButton)}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ \textcolor{keywordtype}{int}\ clickedRow\ =\ -\/1;}
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{keywordtype}{int}\ clickedCol\ =\ -\/1;}
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.rowCount();\ r++)\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.colCount();\ c++)\ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}[r][c]\ ==\ clickedButton)\ \{}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clickedRow\ =\ r;}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clickedCol\ =\ c;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clickedRow\ !=\ -\/1)}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00110\ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordflow}{if}\ (clickedRow\ ==\ -\/1\ ||\ clickedCol\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}Clicked\ button\ not\ found\ in\ the\ grid."{}};}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00115\ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.revealCell(clickedRow,\ clickedCol);}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ clicked\ cell\ is\ a\ mine\ (loss\ condition).}}
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.getCell(clickedRow,\ clickedCol).isMine())\ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Store\ the\ coordinates\ of\ the\ losing\ cell.}}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}{m\_losingRow}}\ =\ clickedRow;}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a3ca2b714b81209a7661b283528061aa4}{m\_losingCol}}\ =\ clickedCol;}
+\DoxyCodeLine{00125\ }
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reveal\ the\ entire\ board.}}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.revealBoard();}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Display\ the\ losing\ message.}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_aca5263848796898245e2019bc833b0b6}{showLoseMessage}}();}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{comment}{//\ Check\ win\ condition.}}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.checkWinCondition())\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.revealBoard();}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a7d9d8dfae0376e748bea20c4dca2c375}{showWinMessage}}();}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00141\ \ \ \ \ \}}
+\DoxyCodeLine{00142\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_main_window_a4429173d634744f4982ab5854583e0fd}\index{MainWindow@{MainWindow}!handleCellRightClick@{handleCellRightClick}}
+\index{handleCellRightClick@{handleCellRightClick}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{handleCellRightClick}{handleCellRightClick}}
+{\footnotesize\ttfamily \label{class_main_window_a4429173d634744f4982ab5854583e0fd} 
+void Main\+Window\+::handle\+Cell\+Right\+Click (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+handle\+Cell\+Right\+Click Handles right-\/click events on board cells. 
+
+\doxylink{class_main_window_a4429173d634744f4982ab5854583e0fd}{Main\+Window\+::handle\+Cell\+Right\+Click} Slot that processes right-\/click events on cells.
+
+Toggles the flag state of the cell and checks for a win condition.
+
+This function toggles the flag status of the clicked cell and checks if the win condition is met. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00149}{149}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00150\ \{}
+\DoxyCodeLine{00151\ \ \ \ \ QRightClickButton\ *clickedButton\ =\ qobject\_cast<QRightClickButton*>(sender());}
+\DoxyCodeLine{00152\ \ \ \ \ \textcolor{keywordflow}{if}\ (!clickedButton)}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{int}\ clickedRow\ =\ -\/1;}
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{int}\ clickedCol\ =\ -\/1;}
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.rowCount();\ r++)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.colCount();\ c++)\ \{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}[r][c]\ ==\ clickedButton)\ \{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clickedRow\ =\ r;}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clickedCol\ =\ c;}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (clickedRow\ !=\ -\/1)}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordflow}{if}\ (clickedRow\ ==\ -\/1\ ||\ clickedCol\ ==\ -\/1)\ \{}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}Right-\/clicked\ button\ not\ found\ in\ the\ grid."{}};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00172\ \ \ \ \ \}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.toggleFlag(clickedRow,\ clickedCol);}
+\DoxyCodeLine{00175\ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.checkWinCondition())\ \{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a7d9d8dfae0376e748bea20c4dca2c375}{showWinMessage}}();}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00180\ \ \ \ \ \}}
+\DoxyCodeLine{00181\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_main_window_a94fe2d3bd4615cc9eb11ff4cfadf8421}\index{MainWindow@{MainWindow}!onLoseExit@{onLoseExit}}
+\index{onLoseExit@{onLoseExit}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onLoseExit}{onLoseExit}}
+{\footnotesize\ttfamily \label{class_main_window_a94fe2d3bd4615cc9eb11ff4cfadf8421} 
+void Main\+Window\+::on\+Lose\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+on\+Lose\+Exit Slot for handling application exit after a loss. 
+
+\doxylink{class_main_window_a94fe2d3bd4615cc9eb11ff4cfadf8421}{Main\+Window\+::on\+Lose\+Exit} Slot for exiting the application after a loss. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00324}{324}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00325\ \{}
+\DoxyCodeLine{00326\ \ \ \ \ QApplication::quit();}
+\DoxyCodeLine{00327\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_main_window_ad72a190bcc0161b60730ad8364c0e158}\index{MainWindow@{MainWindow}!onLoseRetry@{onLoseRetry}}
+\index{onLoseRetry@{onLoseRetry}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onLoseRetry}{onLoseRetry}}
+{\footnotesize\ttfamily \label{class_main_window_ad72a190bcc0161b60730ad8364c0e158} 
+void Main\+Window\+::on\+Lose\+Retry (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+on\+Lose\+Retry Slot for handling a retry after a loss. 
+
+\doxylink{class_main_window_ad72a190bcc0161b60730ad8364c0e158}{Main\+Window\+::on\+Lose\+Retry} Slot for retrying after a loss. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00316}{316}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00317\ \{}
+\DoxyCodeLine{00318\ \ \ \ \ \mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{resetBoard}}();}
+\DoxyCodeLine{00319\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_main_window_a309f0873e17a3cc352950646d584902d}\index{MainWindow@{MainWindow}!onWinExit@{onWinExit}}
+\index{onWinExit@{onWinExit}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onWinExit}{onWinExit}}
+{\footnotesize\ttfamily \label{class_main_window_a309f0873e17a3cc352950646d584902d} 
+void Main\+Window\+::on\+Win\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+on\+Win\+Exit Slot for handling application exit after a win. 
+
+\doxylink{class_main_window_a309f0873e17a3cc352950646d584902d}{Main\+Window\+::on\+Win\+Exit} Slot for exiting the application after a win. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00308}{308}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00309\ \{}
+\DoxyCodeLine{00310\ \ \ \ \ QApplication::quit();}
+\DoxyCodeLine{00311\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_main_window_afd151b5ee20ec277fc345418c73234f1}\index{MainWindow@{MainWindow}!onWinRetry@{onWinRetry}}
+\index{onWinRetry@{onWinRetry}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{onWinRetry}{onWinRetry}}
+{\footnotesize\ttfamily \label{class_main_window_afd151b5ee20ec277fc345418c73234f1} 
+void Main\+Window\+::on\+Win\+Retry (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+on\+Win\+Retry Slot for handling a retry after a win. 
+
+\doxylink{class_main_window_afd151b5ee20ec277fc345418c73234f1}{Main\+Window\+::on\+Win\+Retry} Slot for retrying after a win. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00300}{300}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00301\ \{}
+\DoxyCodeLine{00302\ \ \ \ \ \mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{resetBoard}}();}
+\DoxyCodeLine{00303\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}\index{MainWindow@{MainWindow}!resetBoard@{resetBoard}}
+\index{resetBoard@{resetBoard}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{resetBoard()}{resetBoard()}}
+{\footnotesize\ttfamily \label{class_main_window_a1cfb8c2d8259300ea790bffc075270cd} 
+void Main\+Window\+::reset\+Board (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+reset\+Board Resets the board to start a new game. 
+
+\doxylink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{Main\+Window\+::reset\+Board} Resets the game board to start a new game. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00288}{288}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00289\ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.initialize();}
+\DoxyCodeLine{00291\ \ \ \ \ \textcolor{comment}{//\ Reset\ the\ losing\ cell\ coordinates.}}
+\DoxyCodeLine{00292\ \ \ \ \ \mbox{\hyperlink{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}{m\_losingRow}}\ =\ -\/1;}
+\DoxyCodeLine{00293\ \ \ \ \ \mbox{\hyperlink{class_main_window_a3ca2b714b81209a7661b283528061aa4}{m\_losingCol}}\ =\ -\/1;}
+\DoxyCodeLine{00294\ \ \ \ \ \mbox{\hyperlink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{updateBoardDisplay}}();}
+\DoxyCodeLine{00295\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_main_window_aca5263848796898245e2019bc833b0b6}\index{MainWindow@{MainWindow}!showLoseMessage@{showLoseMessage}}
+\index{showLoseMessage@{showLoseMessage}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{showLoseMessage()}{showLoseMessage()}}
+{\footnotesize\ttfamily \label{class_main_window_aca5263848796898245e2019bc833b0b6} 
+void Main\+Window\+::show\+Lose\+Message (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+show\+Lose\+Message Displays a message box when the player loses. 
+
+\doxylink{class_main_window_aca5263848796898245e2019bc833b0b6}{Main\+Window\+::show\+Lose\+Message} Displays a message box indicating the player has lost. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00265}{265}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00266\ \{}
+\DoxyCodeLine{00267\ \ \ \ \ QMessageBox\ msgBox;}
+\DoxyCodeLine{00268\ \ \ \ \ msgBox.setWindowTitle(\textcolor{stringliteral}{"{}You\ Lose!"{}});}
+\DoxyCodeLine{00269\ \ \ \ \ msgBox.setText(\textcolor{stringliteral}{"{}Oops!\ You\ clicked\ on\ a\ bomb."{}});}
+\DoxyCodeLine{00270\ \ \ \ \ msgBox.setIcon(QMessageBox::Critical);}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \textcolor{comment}{//\ Add\ Retry\ and\ Exit\ buttons.}}
+\DoxyCodeLine{00273\ \ \ \ \ QPushButton\ *retryButton\ =\ msgBox.addButton(\textcolor{stringliteral}{"{}Retry"{}},\ QMessageBox::AcceptRole);}
+\DoxyCodeLine{00274\ \ \ \ \ msgBox.addButton(\textcolor{stringliteral}{"{}Exit"{}},\ QMessageBox::RejectRole);\ \ \textcolor{comment}{//\ No\ variable\ stored}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ msgBox.exec();}
+\DoxyCodeLine{00277\ }
+\DoxyCodeLine{00278\ \ \ \ \ \textcolor{keywordflow}{if}\ (msgBox.clickedButton()\ ==\ retryButton)\ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{resetBoard}}();}
+\DoxyCodeLine{00280\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ QApplication::quit();}
+\DoxyCodeLine{00282\ \ \ \ \ \}}
+\DoxyCodeLine{00283\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_main_window_a7d9d8dfae0376e748bea20c4dca2c375}\index{MainWindow@{MainWindow}!showWinMessage@{showWinMessage}}
+\index{showWinMessage@{showWinMessage}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{showWinMessage()}{showWinMessage()}}
+{\footnotesize\ttfamily \label{class_main_window_a7d9d8dfae0376e748bea20c4dca2c375} 
+void Main\+Window\+::show\+Win\+Message (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+show\+Win\+Message Displays a message box when the player wins. 
+
+\doxylink{class_main_window_a7d9d8dfae0376e748bea20c4dca2c375}{Main\+Window\+::show\+Win\+Message} Displays a message box indicating the player has won. 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00242}{242}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00243\ \{}
+\DoxyCodeLine{00244\ \ \ \ \ QMessageBox\ msgBox;}
+\DoxyCodeLine{00245\ \ \ \ \ msgBox.setWindowTitle(\textcolor{stringliteral}{"{}You\ Win!"{}});}
+\DoxyCodeLine{00246\ \ \ \ \ msgBox.setText(\textcolor{stringliteral}{"{}Congratulations!\ You've\ cleared\ the\ board."{}});}
+\DoxyCodeLine{00247\ \ \ \ \ msgBox.setIcon(QMessageBox::Information);}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{comment}{//\ Add\ Retry\ and\ Exit\ buttons.\ (No\ need\ to\ store\ the\ exit\ button\ if\ unused)}}
+\DoxyCodeLine{00250\ \ \ \ \ QPushButton\ *retryButton\ =\ msgBox.addButton(\textcolor{stringliteral}{"{}Retry"{}},\ QMessageBox::AcceptRole);}
+\DoxyCodeLine{00251\ \ \ \ \ msgBox.addButton(\textcolor{stringliteral}{"{}Exit"{}},\ QMessageBox::RejectRole);\ \ \textcolor{comment}{//\ No\ variable\ stored}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00253\ \ \ \ \ msgBox.exec();}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keywordflow}{if}\ (msgBox.clickedButton()\ ==\ retryButton)\ \{}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_main_window_a1cfb8c2d8259300ea790bffc075270cd}{resetBoard}}();}
+\DoxyCodeLine{00257\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ QApplication::quit();}
+\DoxyCodeLine{00259\ \ \ \ \ \}}
+\DoxyCodeLine{00260\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_main_window_aa1e47d7a5997b63163880d184c5d791b}\index{MainWindow@{MainWindow}!updateBoardDisplay@{updateBoardDisplay}}
+\index{updateBoardDisplay@{updateBoardDisplay}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{updateBoardDisplay()}{updateBoardDisplay()}}
+{\footnotesize\ttfamily \label{class_main_window_aa1e47d7a5997b63163880d184c5d791b} 
+void Main\+Window\+::update\+Board\+Display (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+update\+Board\+Display Refreshes the UI to reflect the current state of the board. 
+
+\doxylink{class_main_window_aa1e47d7a5997b63163880d184c5d791b}{Main\+Window\+::update\+Board\+Display} Updates the UI representation of the board.
+
+Iterates over each cell, updating the text, icon, and enabled state of each button based on the corresponding cell\textquotesingle{}s status (revealed, mine, flagged, or number of adjacent mines). 
+
+Definition at line \mbox{\hyperlink{mainwindow_8cpp_source_l00189}{189}} of file \mbox{\hyperlink{mainwindow_8cpp_source}{mainwindow.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00190\ \{}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.rowCount();\ r++)\ \{}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ c\ =\ 0;\ c\ <\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.colCount();\ c++)\ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ Cell\ \&cell\ =\ \mbox{\hyperlink{class_main_window_ab5bfa8041058291439fbbede2e528dec}{m\_board}}.getCell(r,\ c);}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ QRightClickButton\ *btn\ =\ \mbox{\hyperlink{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}{m\_buttons}}[r][c];}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Clear\ previous\ text\ and\ icon.}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setIcon(QIcon());}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ QString\ iconPath;}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cell.\mbox{\hyperlink{class_cell_a80ecf9c63de9e87dc969ef0156b55691}{isRevealed}}())\ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cell.\mbox{\hyperlink{class_cell_a5f0d777884d1525d94f170cf990b2aa4}{isMine}}())\ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ bomb-\/explode\ icon\ for\ the\ losing\ cell.}}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ \mbox{\hyperlink{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}{m\_losingRow}}\ \&\&\ c\ ==\ \mbox{\hyperlink{class_main_window_a3ca2b714b81209a7661b283528061aa4}{m\_losingCol}})}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ \textcolor{stringliteral}{"{}:/resources/bomb-\/explode.png"{}};}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ \textcolor{stringliteral}{"{}:/resources/bomb-\/revealed.png"{}};}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ adj\ =\ cell.\mbox{\hyperlink{class_cell_a273bbdf9a307db2aa5d590e615068892}{adjacentMines}}();}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (adj\ >\ 0)}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ QString(\textcolor{stringliteral}{"{}:/resources/\%1-\/tile.png"{}}).arg(adj);}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ \textcolor{stringliteral}{"{}:/resources/general-\/tile-\/clicked.png"{}};}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setEnabled(\textcolor{keyword}{false});}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (cell.\mbox{\hyperlink{class_cell_a7767d6d6077322cb2b85e552f0e9ae90}{isFlagged}}())}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ \textcolor{stringliteral}{"{}:/resources/flag.png"{}};}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ iconPath\ =\ \textcolor{stringliteral}{"{}:/resources/general-\/tile.png"{}};}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setEnabled(\textcolor{keyword}{true});}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ QPixmap\ pixmap(iconPath);}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pixmap.isNull())\ \{}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QPixmap\ scaledPixmap\ =\ pixmap.scaled(btn-\/>size(),\ Qt::KeepAspectRatio,\ Qt::SmoothTransformation);}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QIcon\ icon;}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ icon.addPixmap(scaledPixmap,\ QIcon::Normal);}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ icon.addPixmap(scaledPixmap,\ QIcon::Disabled);}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setIcon(icon);}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ btn-\/>setIconSize(btn-\/>size());}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ qWarning()\ <<\ \textcolor{stringliteral}{"{}[Error]\ Failed\ to\ load\ icon:"{}}\ <<\ iconPath;}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00236\ \ \ \ \ \}}
+\DoxyCodeLine{00237\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_main_window_ab5bfa8041058291439fbbede2e528dec}\index{MainWindow@{MainWindow}!m\_board@{m\_board}}
+\index{m\_board@{m\_board}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_board}{m\_board}}
+{\footnotesize\ttfamily \label{class_main_window_ab5bfa8041058291439fbbede2e528dec} 
+\mbox{\hyperlink{class_board}{Board}} Main\+Window\+::m\+\_\+board\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The Minesweeper game board. 
+
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8h_source_l00091}{91}} of file \mbox{\hyperlink{mainwindow_8h_source}{mainwindow.\+h}}.
+
+\Hypertarget{class_main_window_a02c15b35ee07694ed8926336d4dab2b2}\index{MainWindow@{MainWindow}!m\_buttons@{m\_buttons}}
+\index{m\_buttons@{m\_buttons}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_buttons}{m\_buttons}}
+{\footnotesize\ttfamily \label{class_main_window_a02c15b35ee07694ed8926336d4dab2b2} 
+QVector$<$QVector$<$\mbox{\hyperlink{class_q_right_click_button}{QRight\+Click\+Button}}\texorpdfstring{$\ast$}{*}$>$ $>$ Main\+Window\+::m\+\_\+buttons\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Grid of buttons representing each cell. 
+
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8h_source_l00092}{92}} of file \mbox{\hyperlink{mainwindow_8h_source}{mainwindow.\+h}}.
+
+\Hypertarget{class_main_window_a3ca2b714b81209a7661b283528061aa4}\index{MainWindow@{MainWindow}!m\_losingCol@{m\_losingCol}}
+\index{m\_losingCol@{m\_losingCol}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_losingCol}{m\_losingCol}}
+{\footnotesize\ttfamily \label{class_main_window_a3ca2b714b81209a7661b283528061aa4} 
+int Main\+Window\+::m\+\_\+losing\+Col\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Column index of the cell that triggered a loss. 
+
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8h_source_l00095}{95}} of file \mbox{\hyperlink{mainwindow_8h_source}{mainwindow.\+h}}.
+
+\Hypertarget{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85}\index{MainWindow@{MainWindow}!m\_losingRow@{m\_losingRow}}
+\index{m\_losingRow@{m\_losingRow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_losingRow}{m\_losingRow}}
+{\footnotesize\ttfamily \label{class_main_window_afb11f6d88278edcd4c3bf5f6e16a7f85} 
+int Main\+Window\+::m\+\_\+losing\+Row\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Row index of the cell that triggered a loss. 
+
+
+
+Definition at line \mbox{\hyperlink{mainwindow_8h_source_l00094}{94}} of file \mbox{\hyperlink{mainwindow_8h_source}{mainwindow.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{mainwindow_8h}{mainwindow.\+h}}\item 
+src/\mbox{\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}}\end{DoxyCompactItemize}

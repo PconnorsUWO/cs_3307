@@ -1,0 +1,22 @@
+\doxysection{qrightclickbutton.\+cpp}
+\hypertarget{qrightclickbutton_8cpp_source}{}\label{qrightclickbutton_8cpp_source}\index{src/qrightclickbutton.cpp@{src/qrightclickbutton.cpp}}
+\mbox{\hyperlink{qrightclickbutton_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{qrightclickbutton_8h}{qrightclickbutton.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00009}\mbox{\hyperlink{class_q_right_click_button_a7858284dc569b8e1573022858211e80f}{00009}}\ \mbox{\hyperlink{class_q_right_click_button_a7858284dc569b8e1573022858211e80f}{QRightClickButton::QRightClickButton}}(QWidget\ *parent)\ :}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00010}00010\ \ \ \ \ QPushButton(parent)}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00012}00012\ \}}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00021}\mbox{\hyperlink{class_q_right_click_button_a5cf1c413bbfa59ac54d131e153b8c3fd}{00021}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_q_right_click_button_a5cf1c413bbfa59ac54d131e153b8c3fd}{QRightClickButton::mousePressEvent}}(QMouseEvent\ *e)}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ right\ mouse\ button\ was\ pressed.}}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (e-\/>button()\ ==\ Qt::RightButton)\ \{}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ emit\ \mbox{\hyperlink{class_q_right_click_button_a38915875e7adcb8b5dee03e403af9f65}{rightClicked}}();}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00027}00027\ \ \ \ \ \textcolor{comment}{//\ Call\ the\ base\ class\ implementation\ to\ handle\ other\ behaviors.}}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00028}00028\ \ \ \ \ QPushButton::mousePressEvent(e);}
+\DoxyCodeLine{\Hypertarget{qrightclickbutton_8cpp_source_l00029}00029\ \}}
+
+\end{DoxyCode}

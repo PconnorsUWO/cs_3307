@@ -1,0 +1,7 @@
+<map id="MainWindow" name="MainWindow">
+<area shape="rect" id="Node000001" title="The MainWindow class." alt="" coords="62,96,159,123"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,5,112,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,44,105,94,101,97,71,47"/>
+<area shape="rect" id="Node000003" href="$class_board.html" title="The Board class." alt="" coords="136,5,192,32"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="151,47,120,97,116,94,146,44"/>
+</map>

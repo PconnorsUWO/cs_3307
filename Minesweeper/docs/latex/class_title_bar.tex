@@ -1,0 +1,345 @@
+\doxysection{Title\+Bar Class Reference}
+\hypertarget{class_title_bar}{}\label{class_title_bar}\index{TitleBar@{TitleBar}}
+
+
+{\ttfamily \#include $<$titlebar.\+h$>$}
+
+
+
+Inheritance diagram for Title\+Bar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=134pt]{class_title_bar__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Title\+Bar\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=134pt]{class_title_bar__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_title_bar_a6ba829509f9de537d10c2f6c98569aba}{minimize\+Requested}} ()
+\begin{DoxyCompactList}\small\item\em minimize\+Requested Signal emitted when the minimize button is clicked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_title_bar_a3b515bda0009b6d622b079f7486471ac}{close\+Requested}} ()
+\begin{DoxyCompactList}\small\item\em close\+Requested Signal emitted when the close button is clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_title_bar_aac10b1c6b66a54b45c5ec6fe9930ac0a}{Title\+Bar}} (QWidget \texorpdfstring{$\ast$}{*}parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_title_bar}{Title\+Bar} Constructs a \doxylink{class_title_bar}{Title\+Bar} widget. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_title_bar_a0ec84d2661322f3500eb23c60ab6dd71}{mouse\+Press\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\begin{DoxyCompactList}\small\item\em mouse\+Press\+Event Handles mouse press events to enable window dragging. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_title_bar_aa8898dce3ec15a144a9912fd6944e0c5}{mouse\+Move\+Event}} (QMouse\+Event \texorpdfstring{$\ast$}{*}event) override
+\begin{DoxyCompactList}\small\item\em mouse\+Move\+Event Handles mouse move events to enable window dragging. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QLabel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_title_bar_a4c39050059d8cd18e5eb48ca413b435f}{m\+\_\+icon\+Label}}
+\begin{DoxyCompactList}\small\item\em Displays an icon in the title bar. \end{DoxyCompactList}\item 
+QLabel \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_title_bar_a5cbf42ff9112157ee26e1c4d135dbf5e}{m\+\_\+title\+Label}}
+\begin{DoxyCompactList}\small\item\em Displays the title text. \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\+\_\+minimize\+Button}}
+\begin{DoxyCompactList}\small\item\em Button to minimize the window. \end{DoxyCompactList}\item 
+QPush\+Button \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\+\_\+close\+Button}}
+\begin{DoxyCompactList}\small\item\em Button to close the window. \end{DoxyCompactList}\item 
+QPoint \mbox{\hyperlink{class_title_bar_a5c004497dcbbc1ea5cf2ffb769470f68}{m\+\_\+drag\+Position}}
+\begin{DoxyCompactList}\small\item\em Stores the offset used during window dragging. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{titlebar_8h_source_l00017}{17}} of file \mbox{\hyperlink{titlebar_8h_source}{titlebar.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_title_bar_aac10b1c6b66a54b45c5ec6fe9930ac0a}\index{TitleBar@{TitleBar}!TitleBar@{TitleBar}}
+\index{TitleBar@{TitleBar}!TitleBar@{TitleBar}}
+\doxysubsubsection{\texorpdfstring{TitleBar()}{TitleBar()}}
+{\footnotesize\ttfamily \label{class_title_bar_aac10b1c6b66a54b45c5ec6fe9930ac0a} 
+Title\+Bar\+::\+Title\+Bar (\begin{DoxyParamCaption}\item[{QWidget \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+\doxylink{class_title_bar}{Title\+Bar} Constructs a \doxylink{class_title_bar}{Title\+Bar} widget. 
+
+\doxylink{class_title_bar_aac10b1c6b66a54b45c5ec6fe9930ac0a}{Title\+Bar\+::\+Title\+Bar} Constructs a custom title bar for the application.
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & Pointer to the parent widget (default is nullptr).\\
+\hline
+{\em parent} & Pointer to the parent widget.\\
+\hline
+\end{DoxyParams}
+This constructor sets up the layout, icons, title, and buttons (minimize and close) and applies a custom style and drop shadow effect. 
+
+Definition at line \mbox{\hyperlink{titlebar_8cpp_source_l00018}{18}} of file \mbox{\hyperlink{titlebar_8cpp_source}{titlebar.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00019\ \ \ \ \ :\ QWidget(parent) }
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Set\ an\ object\ name\ so\ the\ style\ sheet\ can\ target\ this\ widget.}}
+\DoxyCodeLine{00022\ \ \ \ \ setObjectName(\textcolor{stringliteral}{"{}TitleBar"{}});}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{comment}{//\ Fix\ the\ height\ of\ the\ title\ bar.}}
+\DoxyCodeLine{00024\ \ \ \ \ setFixedHeight(35);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ horizontal\ layout\ with\ margins.}}
+\DoxyCodeLine{00027\ \ \ \ \ QHBoxLayout\ *layout\ =\ \textcolor{keyword}{new}\ QHBoxLayout(\textcolor{keyword}{this});}
+\DoxyCodeLine{00028\ \ \ \ \ layout-\/>setContentsMargins(10,\ 0,\ 10,\ 0);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{comment}{//\ Create\ and\ add\ an\ icon\ label.}}
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_title_bar_a4c39050059d8cd18e5eb48ca413b435f}{m\_iconLabel}}\ =\ \textcolor{keyword}{new}\ QLabel(\textcolor{keyword}{this});}
+\DoxyCodeLine{00032\ \ \ \ \ QPixmap\ icon(\textcolor{stringliteral}{"{}:/resources/bomb-\/revealed.png"{}});\ \ \textcolor{comment}{//\ Replace\ with\ your\ own\ Minesweeper\ icon.}}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_title_bar_a4c39050059d8cd18e5eb48ca413b435f}{m\_iconLabel}}-\/>setPixmap(icon.scaled(24,\ 24,\ Qt::KeepAspectRatio,\ Qt::SmoothTransformation));}
+\DoxyCodeLine{00034\ \ \ \ \ layout-\/>addWidget(\mbox{\hyperlink{class_title_bar_a4c39050059d8cd18e5eb48ca413b435f}{m\_iconLabel}});}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{//\ Create\ and\ add\ the\ title\ label.}}
+\DoxyCodeLine{00037\ \ \ \ \ \mbox{\hyperlink{class_title_bar_a5cbf42ff9112157ee26e1c4d135dbf5e}{m\_titleLabel}}\ =\ \textcolor{keyword}{new}\ QLabel(\textcolor{stringliteral}{"{}Minesweeper"{}},\ \textcolor{keyword}{this});}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_title_bar_a5cbf42ff9112157ee26e1c4d135dbf5e}{m\_titleLabel}}-\/>setStyleSheet(\textcolor{stringliteral}{"{}color:\ white;\ font-\/family:\ 'Segoe\ UI';\ font-\/size:\ 16px;\ font-\/weight:\ bold;"{}});}
+\DoxyCodeLine{00039\ \ \ \ \ layout-\/>addWidget(\mbox{\hyperlink{class_title_bar_a5cbf42ff9112157ee26e1c4d135dbf5e}{m\_titleLabel}});}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{comment}{//\ Add\ a\ stretch\ to\ push\ the\ buttons\ to\ the\ right.}}
+\DoxyCodeLine{00042\ \ \ \ \ layout-\/>addStretch();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{comment}{//\ Create\ the\ minimize\ button.}}
+\DoxyCodeLine{00045\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}}\ =\ \textcolor{keyword}{new}\ QPushButton(\textcolor{keyword}{this});}
+\DoxyCodeLine{00046\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}}-\/>setFixedSize(30,\ 30);}
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}}-\/>setText(\textcolor{stringliteral}{"{}—"{}});\ \ \textcolor{comment}{//\ Em\ dash\ for\ a\ clean\ look.}}
+\DoxyCodeLine{00048\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}}-\/>setStyleSheet(}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}QPushButton\ \{"{}}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ background-\/color:\ transparent;"{}}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ border:\ none;"{}}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ color:\ black;"{}}}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ font-\/family:\ 'Segoe\ UI';"{}}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ font-\/size:\ 14px;"{}}}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}"{}}}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}QPushButton:hover\ \{"{}}}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ background-\/color:\ rgba(255,\ 255,\ 255,\ 0.3);"{}}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ border-\/radius:\ 5px;"{}}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}"{}}}
+\DoxyCodeLine{00060\ \ \ \ \ );}
+\DoxyCodeLine{00061\ \ \ \ \ layout-\/>addWidget(\mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}});}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ Create\ the\ close\ button.}}
+\DoxyCodeLine{00064\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}}\ =\ \textcolor{keyword}{new}\ QPushButton(\textcolor{keyword}{this});}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}}-\/>setFixedSize(30,\ 30);}
+\DoxyCodeLine{00066\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}}-\/>setText(\textcolor{stringliteral}{"{}✕"{}});\ \ \textcolor{comment}{//\ Unicode\ multiplication\ sign.}}
+\DoxyCodeLine{00067\ \ \ \ \ \mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}}-\/>setStyleSheet(}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}QPushButton\ \{"{}}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ background-\/color:\ transparent;"{}}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ border:\ none;"{}}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ color:\ black;"{}}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ font-\/family:\ 'Segoe\ UI';"{}}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ font-\/size:\ 14px;"{}}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}"{}}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}QPushButton:hover\ \{"{}}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ background-\/color:\ \#E81123;"{}}\ \ \textcolor{comment}{//\ Bold\ red\ for\ hover.}}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ border-\/radius:\ 5px;"{}}}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}"{}}}
+\DoxyCodeLine{00079\ \ \ \ \ );}
+\DoxyCodeLine{00080\ \ \ \ \ layout-\/>addWidget(\mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}});}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{comment}{//\ Apply\ a\ gradient\ background\ to\ the\ title\ bar.}}
+\DoxyCodeLine{00083\ \ \ \ \ setStyleSheet(}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\#TitleBar\ \{"{}}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\ \ background:\ qlineargradient(x1:0,\ y1:0,\ x2:0,\ y2:1,\ stop:0\ \#34495e,\ stop:1\ \#2c3e50);"{}}}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}"{}}}
+\DoxyCodeLine{00087\ \ \ \ \ );}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \ \ \ \ \textcolor{comment}{//\ Add\ a\ drop\ shadow\ effect\ for\ depth.}}
+\DoxyCodeLine{00090\ \ \ \ \ QGraphicsDropShadowEffect\ *shadow\ =\ \textcolor{keyword}{new}\ QGraphicsDropShadowEffect(\textcolor{keyword}{this});}
+\DoxyCodeLine{00091\ \ \ \ \ shadow-\/>setBlurRadius(10);}
+\DoxyCodeLine{00092\ \ \ \ \ shadow-\/>setOffset(0,\ 2);}
+\DoxyCodeLine{00093\ \ \ \ \ shadow-\/>setColor(QColor(0,\ 0,\ 0,\ 160));}
+\DoxyCodeLine{00094\ \ \ \ \ setGraphicsEffect(shadow);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{comment}{//\ Connect\ the\ buttons\ to\ the\ corresponding\ signals.}}
+\DoxyCodeLine{00097\ \ \ \ \ connect(\mbox{\hyperlink{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}{m\_minimizeButton}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{class_title_bar_a6ba829509f9de537d10c2f6c98569aba}{TitleBar::minimizeRequested}});}
+\DoxyCodeLine{00098\ \ \ \ \ connect(\mbox{\hyperlink{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}{m\_closeButton}},\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&\mbox{\hyperlink{class_title_bar_a3b515bda0009b6d622b079f7486471ac}{TitleBar::closeRequested}});}
+\DoxyCodeLine{00099\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_title_bar_a3b515bda0009b6d622b079f7486471ac}\index{TitleBar@{TitleBar}!closeRequested@{closeRequested}}
+\index{closeRequested@{closeRequested}!TitleBar@{TitleBar}}
+\doxysubsubsection{\texorpdfstring{closeRequested}{closeRequested}}
+{\footnotesize\ttfamily \label{class_title_bar_a3b515bda0009b6d622b079f7486471ac} 
+void Title\+Bar\+::close\+Requested (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+close\+Requested Signal emitted when the close button is clicked. 
+
+\Hypertarget{class_title_bar_a6ba829509f9de537d10c2f6c98569aba}\index{TitleBar@{TitleBar}!minimizeRequested@{minimizeRequested}}
+\index{minimizeRequested@{minimizeRequested}!TitleBar@{TitleBar}}
+\doxysubsubsection{\texorpdfstring{minimizeRequested}{minimizeRequested}}
+{\footnotesize\ttfamily \label{class_title_bar_a6ba829509f9de537d10c2f6c98569aba} 
+void Title\+Bar\+::minimize\+Requested (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+minimize\+Requested Signal emitted when the minimize button is clicked. 
+
+\Hypertarget{class_title_bar_aa8898dce3ec15a144a9912fd6944e0c5}\index{TitleBar@{TitleBar}!mouseMoveEvent@{mouseMoveEvent}}
+\index{mouseMoveEvent@{mouseMoveEvent}!TitleBar@{TitleBar}}
+\doxysubsubsection{\texorpdfstring{mouseMoveEvent()}{mouseMoveEvent()}}
+{\footnotesize\ttfamily \label{class_title_bar_aa8898dce3ec15a144a9912fd6944e0c5} 
+void Title\+Bar\+::mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event \texorpdfstring{$\ast$}{*}}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+mouse\+Move\+Event Handles mouse move events to enable window dragging. 
+
+\doxylink{class_title_bar_aa8898dce3ec15a144a9912fd6944e0c5}{Title\+Bar\+::mouse\+Move\+Event} Handles mouse move events for window dragging.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Pointer to the QMouse\+Event.\\
+\hline
+{\em event} & Pointer to the QMouse\+Event.\\
+\hline
+\end{DoxyParams}
+This function moves the window according to the mouse drag movement. 
+
+Definition at line \mbox{\hyperlink{titlebar_8cpp_source_l00122}{122}} of file \mbox{\hyperlink{titlebar_8cpp_source}{titlebar.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00123\ \{}
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>buttons()\ \&\ Qt::LeftButton)\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ parentWidget()-\/>move(event-\/>globalPosition().toPoint()\ -\/\ \mbox{\hyperlink{class_title_bar_a5c004497dcbbc1ea5cf2ffb769470f68}{m\_dragPosition}});}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \textcolor{keyword}{event}-\/>accept();}
+\DoxyCodeLine{00127\ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_title_bar_a0ec84d2661322f3500eb23c60ab6dd71}\index{TitleBar@{TitleBar}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!TitleBar@{TitleBar}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily \label{class_title_bar_a0ec84d2661322f3500eb23c60ab6dd71} 
+void Title\+Bar\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{QMouse\+Event \texorpdfstring{$\ast$}{*}}]{event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+mouse\+Press\+Event Handles mouse press events to enable window dragging. 
+
+\doxylink{class_title_bar_a0ec84d2661322f3500eb23c60ab6dd71}{Title\+Bar\+::mouse\+Press\+Event} Handles mouse press events for window dragging.
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Pointer to the QMouse\+Event.\\
+\hline
+{\em event} & Pointer to the QMouse\+Event.\\
+\hline
+\end{DoxyParams}
+This function allows the user to drag the window by clicking and holding the title bar. 
+
+Definition at line \mbox{\hyperlink{titlebar_8cpp_source_l00107}{107}} of file \mbox{\hyperlink{titlebar_8cpp_source}{titlebar.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00108\ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{keywordflow}{if}\ (event-\/>button()\ ==\ Qt::LeftButton)\ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Use\ globalPosition()\ and\ convert\ it\ to\ QPoint.}}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_title_bar_a5c004497dcbbc1ea5cf2ffb769470f68}{m\_dragPosition}}\ =\ \textcolor{keyword}{event}-\/>globalPosition().toPoint()\ -\/\ parentWidget()-\/>frameGeometry().topLeft();}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \textcolor{keyword}{event}-\/>accept();}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_title_bar_ae29141d94f6d55d23d2970d424a43f79}\index{TitleBar@{TitleBar}!m\_closeButton@{m\_closeButton}}
+\index{m\_closeButton@{m\_closeButton}!TitleBar@{TitleBar}}
+\doxysubsubsection{\texorpdfstring{m\_closeButton}{m\_closeButton}}
+{\footnotesize\ttfamily \label{class_title_bar_ae29141d94f6d55d23d2970d424a43f79} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Title\+Bar\+::m\+\_\+close\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Button to close the window. 
+
+
+
+Definition at line \mbox{\hyperlink{titlebar_8h_source_l00055}{55}} of file \mbox{\hyperlink{titlebar_8h_source}{titlebar.\+h}}.
+
+\Hypertarget{class_title_bar_a5c004497dcbbc1ea5cf2ffb769470f68}\index{TitleBar@{TitleBar}!m\_dragPosition@{m\_dragPosition}}
+\index{m\_dragPosition@{m\_dragPosition}!TitleBar@{TitleBar}}
+\doxysubsubsection{\texorpdfstring{m\_dragPosition}{m\_dragPosition}}
+{\footnotesize\ttfamily \label{class_title_bar_a5c004497dcbbc1ea5cf2ffb769470f68} 
+QPoint Title\+Bar\+::m\+\_\+drag\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Stores the offset used during window dragging. 
+
+
+
+Definition at line \mbox{\hyperlink{titlebar_8h_source_l00056}{56}} of file \mbox{\hyperlink{titlebar_8h_source}{titlebar.\+h}}.
+
+\Hypertarget{class_title_bar_a4c39050059d8cd18e5eb48ca413b435f}\index{TitleBar@{TitleBar}!m\_iconLabel@{m\_iconLabel}}
+\index{m\_iconLabel@{m\_iconLabel}!TitleBar@{TitleBar}}
+\doxysubsubsection{\texorpdfstring{m\_iconLabel}{m\_iconLabel}}
+{\footnotesize\ttfamily \label{class_title_bar_a4c39050059d8cd18e5eb48ca413b435f} 
+QLabel\texorpdfstring{$\ast$}{*} Title\+Bar\+::m\+\_\+icon\+Label\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Displays an icon in the title bar. 
+
+
+
+Definition at line \mbox{\hyperlink{titlebar_8h_source_l00052}{52}} of file \mbox{\hyperlink{titlebar_8h_source}{titlebar.\+h}}.
+
+\Hypertarget{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479}\index{TitleBar@{TitleBar}!m\_minimizeButton@{m\_minimizeButton}}
+\index{m\_minimizeButton@{m\_minimizeButton}!TitleBar@{TitleBar}}
+\doxysubsubsection{\texorpdfstring{m\_minimizeButton}{m\_minimizeButton}}
+{\footnotesize\ttfamily \label{class_title_bar_ac7033c55035aaf4fa3272fc184b4e479} 
+QPush\+Button\texorpdfstring{$\ast$}{*} Title\+Bar\+::m\+\_\+minimize\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Button to minimize the window. 
+
+
+
+Definition at line \mbox{\hyperlink{titlebar_8h_source_l00054}{54}} of file \mbox{\hyperlink{titlebar_8h_source}{titlebar.\+h}}.
+
+\Hypertarget{class_title_bar_a5cbf42ff9112157ee26e1c4d135dbf5e}\index{TitleBar@{TitleBar}!m\_titleLabel@{m\_titleLabel}}
+\index{m\_titleLabel@{m\_titleLabel}!TitleBar@{TitleBar}}
+\doxysubsubsection{\texorpdfstring{m\_titleLabel}{m\_titleLabel}}
+{\footnotesize\ttfamily \label{class_title_bar_a5cbf42ff9112157ee26e1c4d135dbf5e} 
+QLabel\texorpdfstring{$\ast$}{*} Title\+Bar\+::m\+\_\+title\+Label\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Displays the title text. 
+
+
+
+Definition at line \mbox{\hyperlink{titlebar_8h_source_l00053}{53}} of file \mbox{\hyperlink{titlebar_8h_source}{titlebar.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/\mbox{\hyperlink{titlebar_8h}{titlebar.\+h}}\item 
+src/\mbox{\hyperlink{titlebar_8cpp}{titlebar.\+cpp}}\end{DoxyCompactItemize}

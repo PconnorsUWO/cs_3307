@@ -1,0 +1,66 @@
+\doxysection{src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include $<$QApplication$>$}\newline
+{\ttfamily \#include $<$QFile$>$}\newline
+{\ttfamily \#include $<$QMessage\+Box$>$}\newline
+{\ttfamily \#include $<$QDebug$>$}\newline
+{\ttfamily \#include "{}mainwindow.\+h"{}}\newline
+Include dependency graph for main.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em main The entry point of the Minesweeper application. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+int main (\begin{DoxyParamCaption}\item[{int}]{argc}{, }\item[{char \texorpdfstring{$\ast$}{*}}]{argv}{\mbox{[}$\,$\mbox{]}}\end{DoxyParamCaption})}
+
+
+
+main The entry point of the Minesweeper application. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Argument count. \\
+\hline
+{\em argv} & Argument vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+EXIT\+\_\+\+SUCCESS on success, EXIT\+\_\+\+FAILURE if a critical resource is missing.
+\end{DoxyReturn}
+The main function creates a QApplication, checks for the existence of a critical resource (flag icon), and then instantiates and displays the main window. If the resource is missing, an error is shown and the application exits. 
+
+Definition at line \mbox{\hyperlink{main_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{main_8cpp_source}{main.\+cpp}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ QApplication\ app(argc,\ argv);}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ the\ required\ resource\ (flag\ icon)\ exists.}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (!QFile::exists(\textcolor{stringliteral}{"{}:/resources/flag.png"{}}))\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ qCritical()\ <<\ \textcolor{stringliteral}{"{}Critical\ resource\ missing:\ :/resources/flag.png"{}};}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ QMessageBox::critical(\textcolor{keyword}{nullptr},\ \textcolor{stringliteral}{"{}Critical\ Error"{}},\ \textcolor{stringliteral}{"{}Required\ resource\ missing:\ flag\ icon\ not\ found.\ The\ application\ will\ now\ exit."{}});}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ EXIT\_FAILURE;\ \ \textcolor{comment}{//\ Exit\ if\ the\ required\ resource\ is\ missing.}}
+\DoxyCodeLine{00026\ \ \ \ \ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{comment}{//\ Create\ and\ show\ the\ main\ window.}}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_main_window}{MainWindow}}\ w;}
+\DoxyCodeLine{00030\ \ \ \ \ w.show();}
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordflow}{return}\ app.exec();}
+\DoxyCodeLine{00032\ \}}
+
+\end{DoxyCode}

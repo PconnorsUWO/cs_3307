@@ -1,18 +1,24 @@
 #include "mainwindow.h"
-#include "titlebar.h"       
+#include "titlebar.h"
 #include <QFile>
 #include <QMessageBox>
 #include <QDebug>
 #include <QIcon>
 #include <QPixmap>
-#include <QSize>
 #include <QGridLayout>
 #include <QVBoxLayout>
 #include <QApplication>
 
+/**
+ * @brief MainWindow::MainWindow Constructs the main window of the Minesweeper game.
+ * @param parent Pointer to the parent widget.
+ *
+ * This constructor sets up the custom title bar, creates the grid layout for the game board,
+ * initializes the board and buttons, and connects the necessary signals for cell interactions.
+ */
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , m_losingRow(-1)      // initialize to an invalid value
+    , m_losingRow(-1)      // Initialize to an invalid value.
     , m_losingCol(-1)
 {
     // Remove native window decorations.
@@ -31,10 +37,6 @@ MainWindow::MainWindow(QWidget *parent)
     TitleBar *titleBar = new TitleBar(this);
     mainLayout->addWidget(titleBar);
 
-    // Connect the title bar signals to window actions.
-    connect(titleBar, &TitleBar::minimizeRequested, this, &MainWindow::showMinimized);
-    connect(titleBar, &TitleBar::closeRequested, this, &MainWindow::close);
-
     // Create a widget to hold the game board.
     QWidget *boardWidget = new QWidget(this);
     
@@ -48,10 +50,10 @@ MainWindow::MainWindow(QWidget *parent)
     // Add the board widget to the main layout.
     mainLayout->addWidget(boardWidget);
 
-    // Initialize your board and buttons as before.
+    // Initialize the game board.
     m_board.initialize();
 
-    // Resize the m_buttons container.
+    // Resize and populate the m_buttons container with custom right-click buttons.
     m_buttons.resize(m_board.rowCount());
     for (int r = 0; r < m_board.rowCount(); r++) {
         m_buttons[r].resize(m_board.colCount());
@@ -59,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent)
             QRightClickButton *btn = new QRightClickButton(this);
             btn->setFixedSize(40, 40);
             
-            // Remove any default borders/paddings that might create spacing.
+            // Remove default borders/paddings.
             btn->setStyleSheet("border: none; padding: -1px; margin: 0px;");
             
             gridLayout->addWidget(btn, r, c);
@@ -70,13 +72,23 @@ MainWindow::MainWindow(QWidget *parent)
         }
     }
 
+    // Refresh the board display to match the initial game state.
     updateBoardDisplay();
 }
 
+/**
+ * @brief MainWindow::~MainWindow Destructor.
+ */
 MainWindow::~MainWindow()
 {
 }
 
+/**
+ * @brief MainWindow::handleCellClick Slot that processes left-click events on cells.
+ *
+ * Determines which button was clicked, reveals the corresponding cell,
+ * checks for a mine (loss), and verifies if the win condition has been met.
+ */
 void MainWindow::handleCellClick()
 {
     QRightClickButton *clickedButton = qobject_cast<QRightClickButton*>(sender());
@@ -105,18 +117,17 @@ void MainWindow::handleCellClick()
     m_board.revealCell(clickedRow, clickedCol);
     updateBoardDisplay();
 
-    // Check if the clicked cell is a mine (loss)
+    // Check if the clicked cell is a mine (loss condition).
     if (m_board.getCell(clickedRow, clickedCol).isMine()) {
-        // Store the coordinates of the losing cell so that updateBoardDisplay()
-        // can display bomb-explode.png for that cell.
+        // Store the coordinates of the losing cell.
         m_losingRow = clickedRow;
         m_losingCol = clickedCol;
 
-        // Reveal the entire board and update the display.
+        // Reveal the entire board.
         m_board.revealBoard();
         updateBoardDisplay();
 
-        // Now show the lose message.
+        // Display the losing message.
         showLoseMessage();
         return;
     }
@@ -130,6 +141,11 @@ void MainWindow::handleCellClick()
     }
 }
 
+/**
+ * @brief MainWindow::handleCellRightClick Slot that processes right-click events on cells.
+ *
+ * This function toggles the flag status of the clicked cell and checks if the win condition is met.
+ */
 void MainWindow::handleCellRightClick()
 {
     QRightClickButton *clickedButton = qobject_cast<QRightClickButton*>(sender());
@@ -164,6 +180,12 @@ void MainWindow::handleCellRightClick()
     }
 }
 
+/**
+ * @brief MainWindow::updateBoardDisplay Updates the UI representation of the board.
+ *
+ * Iterates over each cell, updating the text, icon, and enabled state of each button
+ * based on the corresponding cell's status (revealed, mine, flagged, or number of adjacent mines).
+ */
 void MainWindow::updateBoardDisplay()
 {
     for (int r = 0; r < m_board.rowCount(); r++) {
@@ -178,7 +200,7 @@ void MainWindow::updateBoardDisplay()
             QString iconPath;
             if (cell.isRevealed()) {
                 if (cell.isMine()) {
-                    // If this is the losing cell, use bomb-explode icon.
+                    // Use bomb-explode icon for the losing cell.
                     if (r == m_losingRow && c == m_losingCol)
                         iconPath = ":/resources/bomb-explode.png";
                     else
@@ -214,6 +236,9 @@ void MainWindow::updateBoardDisplay()
     }
 }
 
+/**
+ * @brief MainWindow::showWinMessage Displays a message box indicating the player has won.
+ */
 void MainWindow::showWinMessage()
 {
     QMessageBox msgBox;
@@ -221,9 +246,9 @@ void MainWindow::showWinMessage()
     msgBox.setText("Congratulations! You've cleared the board.");
     msgBox.setIcon(QMessageBox::Information);
 
-    // Add Retry and Exit buttons.
+    // Add Retry and Exit buttons. (No need to store the exit button if unused)
     QPushButton *retryButton = msgBox.addButton("Retry", QMessageBox::AcceptRole);
-    QPushButton *exitButton = msgBox.addButton("Exit", QMessageBox::RejectRole);
+    msgBox.addButton("Exit", QMessageBox::RejectRole);  // No variable stored
 
     msgBox.exec();
 
@@ -234,6 +259,9 @@ void MainWindow::showWinMessage()
     }
 }
 
+/**
+ * @brief MainWindow::showLoseMessage Displays a message box indicating the player has lost.
+ */
 void MainWindow::showLoseMessage()
 {
     QMessageBox msgBox;
@@ -243,7 +271,7 @@ void MainWindow::showLoseMessage()
 
     // Add Retry and Exit buttons.
     QPushButton *retryButton = msgBox.addButton("Retry", QMessageBox::AcceptRole);
-    QPushButton *exitButton = msgBox.addButton("Exit", QMessageBox::RejectRole);
+    msgBox.addButton("Exit", QMessageBox::RejectRole);  // No variable stored
 
     msgBox.exec();
 
@@ -254,6 +282,9 @@ void MainWindow::showLoseMessage()
     }
 }
 
+/**
+ * @brief MainWindow::resetBoard Resets the game board to start a new game.
+ */
 void MainWindow::resetBoard()
 {
     m_board.initialize();
@@ -263,21 +294,33 @@ void MainWindow::resetBoard()
     updateBoardDisplay();
 }
 
+/**
+ * @brief MainWindow::onWinRetry Slot for retrying after a win.
+ */
 void MainWindow::onWinRetry()
 {
     resetBoard();
 }
 
+/**
+ * @brief MainWindow::onWinExit Slot for exiting the application after a win.
+ */
 void MainWindow::onWinExit()
 {
     QApplication::quit();
 }
 
+/**
+ * @brief MainWindow::onLoseRetry Slot for retrying after a loss.
+ */
 void MainWindow::onLoseRetry()
 {
     resetBoard();
 }
 
+/**
+ * @brief MainWindow::onLoseExit Slot for exiting the application after a loss.
+ */
 void MainWindow::onLoseExit()
 {
     QApplication::quit();
