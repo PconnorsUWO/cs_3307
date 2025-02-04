@@ -4,16 +4,7 @@ REM Batch Script to Build and Run Minesweeper
 REM ============================================
 
 REM Enable command echoing for debugging (optional)
-REM @echo on
-
-REM ---------------------------
-REM Configuration Section
-REM ---------------------------
-
-REM Specify the Qt version's qmake path if not in PATH
-REM Example for Qt installed in C:\Qt\5.15.2\mingw81_64\bin
-REM set QMAKE_PATH=C:\Qt\5.15.2\mingw81_64\bin
-REM set PATH=%QMAKE_PATH%;%PATH%
+REM @echo ons
 
 REM Choose your make tool: uncomment one of the following
 set MAKE_TOOL=make

@@ -1,0 +1,7 @@
+if you want to run on linux
+you can use compile.sh
+
+if you want to run on windows
+you can use the compile-run.bat
+
+board size is located in board.h if you want to test win functionality.
