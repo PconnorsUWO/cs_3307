@@ -22,7 +22,6 @@ void Board::initialize()
 
     placeMines(generateMines());
 
-    // Calculate adjacency counts for all non-mine cells
     for(int r = 0; r < m_rows; r++) {
         for(int c = 0; c < m_cols; c++) {
             if(!m_cells[r][c].isMine()) {
@@ -194,6 +193,15 @@ void Board::revealCell(int row, int col)
     }
 
     m_cells[row][col].setIsRevealed(true);
+}
+
+void Board::revealBoard()
+{
+    for(int r = 0; r < m_rows; r++) {
+        for(int c = 0; c < m_cols; c++) {
+            m_cells[r][c].setIsRevealed(true);
+        }
+    }
 }
 
 void Board::toggleFlag(int row, int col)

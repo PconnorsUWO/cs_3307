@@ -1,0 +1,10 @@
+debug/main.o
+debug/board.o
+debug/cell.o
+debug/mainwindow.o
+debug/qrightclickbutton.o
+debug/titlebar.o
+debug/qrc_resources.o
+debug/moc_mainwindow.o
+debug/moc_qrightclickbutton.o
+debug/moc_titlebar.o

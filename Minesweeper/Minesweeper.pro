@@ -11,10 +11,12 @@ SOURCES += \
     src/board.cpp \
     src/cell.cpp \
     src/mainwindow.cpp \
-    src/qrightclickbutton.cpp
+    src/qrightclickbutton.cpp \
+    src/titlebar.cpp
 
 HEADERS += \
     src/board.h \
     src/cell.h \
     src/mainwindow.h \
-    src/qrightclickbutton.h
+    src/qrightclickbutton.h \
+    src/titlebar.h

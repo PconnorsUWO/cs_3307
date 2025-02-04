@@ -1,0 +1,10 @@
+release/main.o
+release/board.o
+release/cell.o
+release/mainwindow.o
+release/qrightclickbutton.o
+release/titlebar.o
+release/qrc_resources.o
+release/moc_mainwindow.o
+release/moc_qrightclickbutton.o
+release/moc_titlebar.o

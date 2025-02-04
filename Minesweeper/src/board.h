@@ -31,6 +31,8 @@ public:
 
     void toggleFlag(int row, int col);
 
+    void revealBoard();
+    
     int rowCount() const;
     int colCount() const;
 
