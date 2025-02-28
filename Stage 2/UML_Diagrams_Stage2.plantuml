@@ -1,0 +1,109 @@
+@startuml
+'=====================
+' Core Engine Components
+'=====================
+class ChessEngine {
+  - board: Board
+  - fenParser: FENParser
+  - moveGen: MoveGenerator
+  - search: SearchAlgorithm
+  - eval: Evaluation
+  - uci: UCIInterface
+  - skill: SkillLevel
+  - openingBook: OpeningBook
+  - endgameTables: EndgameTablebase
+  + loadFEN(fen: String): void
+  + generateMoves(): List<Move>
+  + searchBestMove(): Move
+  + updateBoard(move: Move): void
+}
+
+class Board {
+  - bitboards: Map<Piece, long>
+  - attackMasks: Map<Piece, long>
+  + updateState(move: Move): void
+  + getState(): String
+}
+
+class FENParser {
+  + parse(fen: String): Board
+  + generateFEN(board: Board): String
+}
+
+class MoveGenerator {
+  + generateLegalMoves(board: Board): List<Move>
+}
+
+class SearchAlgorithm {
+  - depth: int
+  - threadPool: ThreadPool "optional for multithreading"
+  + minimaxAlphaBeta(board: Board, depth: int): Move
+}
+
+class Evaluation {
+  + evaluatePosition(board: Board): int
+}
+
+' Optional machine learning evaluation alternative (inherits from Evaluation)
+class MLEvaluation {
+  + evaluatePosition(board: Board): int
+}
+MLEvaluation --|> Evaluation
+
+'=====================
+' UCI and User Interface
+'=====================
+class UCIInterface {
+  + processCommand(cmd: String): void
+  + sendResponse(resp: String): void
+}
+
+class SkillLevel {
+  - elo: int
+  + adjustSkill(): void
+}
+
+'=====================
+' Optional/Extended Modules
+'=====================
+class OpeningBook {
+  + loadBook(file: String): void
+  + getMove(board: Board): Move
+}
+
+class EndgameTablebase {
+  + queryTablebase(board: Board): Outcome
+}
+
+class GUI {
+  + displayBoard(board: Board): void
+  + getUserMove(): Move
+}
+
+class OnlinePlay {
+  + connectToPlatform(api: String): void
+  + updateGameState(): void
+  + sendMove(move: Move): void
+}
+
+'=====================
+' Relationships
+'=====================
+ChessEngine "1" -- "1" Board
+ChessEngine "1" -- "1" FENParser
+ChessEngine "1" -- "1" MoveGenerator
+ChessEngine "1" -- "1" SearchAlgorithm
+ChessEngine "1" -- "1" Evaluation
+ChessEngine "1" -- "1" UCIInterface
+ChessEngine "1" -- "1" SkillLevel
+ChessEngine "1" -- "1" OpeningBook
+ChessEngine "1" -- "1" EndgameTablebase
+
+FENParser ..> Board : creates/updates
+SearchAlgorithm ..> MoveGenerator : uses
+SearchAlgorithm ..> Evaluation : uses
+
+GUI ..> UCIInterface : communicates via UCI commands
+OnlinePlay ..> ChessEngine : integrates for online game control
+
+@enduml
